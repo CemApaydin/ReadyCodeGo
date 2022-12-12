@@ -20,6 +20,20 @@ public class FacultyBoardMember extends User {
     private Set<ToDoList> doneList;
 
     public FacultyBoardMember() {
+        super();
+    }
+
+    public FacultyBoardMember(Long userID, String userType, String userMail, String password, String name, String department, ToDoList toDoList, Set<ToDoList> doneList) {
+        super(userID, userType, userMail, password, name, department, toDoList);
+        this.doneList = doneList;
+    }
+
+    public FacultyBoardMember(Long userID, String userType, String userMail, String password, String name, String department, ToDoList toDoList) {
+        super(userID, userType, userMail, password, name, department, toDoList);
+    }
+
+    public FacultyBoardMember(Set<ToDoList> doneList) {
+        this.doneList = doneList;
     }
 
     public Set<ToDoList> getDoneList() {

@@ -36,12 +36,14 @@ public class Student extends User {
     }
 
     public Student(Application application, Coordinator coordinator, boolean isPlaced) {
+        super();
         this.application = application;
         this.coordinator = coordinator;
         this.isPlaced = isPlaced;
     }
 
     public Student() {
+        super();
     }
 
     public Application getApplication() {

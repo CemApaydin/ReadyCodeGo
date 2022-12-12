@@ -34,11 +34,13 @@ public class Instructor extends User {
     }
 
     public Instructor(Set<String> relatedCourses, Set<ToDoList> doneList) {
+        super();
         this.relatedCourses = relatedCourses;
         this.doneList = doneList;
     }
 
     public Instructor() {
+        super();
     }
 
     public Set<String> getRelatedCourses() {

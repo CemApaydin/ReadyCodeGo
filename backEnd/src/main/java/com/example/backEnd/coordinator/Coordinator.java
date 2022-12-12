@@ -23,14 +23,30 @@ public class Coordinator extends User {
     @OneToMany
     private Set<Application> applicationList;
 
-    public Coordinator(Long userID, String userType, String userMail, String password, String name, String department, ToDoList toDoList) {
+    public Coordinator(Long userID,
+                       String userType,
+                       String userMail,
+                       String password,
+                       String name,
+                       String department,
+                       ToDoList toDoList) {
         super(userID, userType, userMail, password, name, department, toDoList);
     }
 
     public Coordinator() {
+        super();
     }
 
-    public Coordinator(Long userID, String userType, String userMail, String password, String name, String department, ToDoList toDoList, Set<ToDoList> doneList, Set<University> universityList, Set<Application> applicationList) {
+    public Coordinator(Long userID,
+                       String userType,
+                       String userMail,
+                       String password,
+                       String name,
+                       String department,
+                       ToDoList toDoList,
+                       Set<ToDoList> doneList,
+                       Set<University> universityList,
+                       Set<Application> applicationList) {
         super(userID, userType, userMail, password, name, department, toDoList);
         this.doneList = doneList;
         this.universityList = universityList;
@@ -38,6 +54,7 @@ public class Coordinator extends User {
     }
 
     public Coordinator(Set<ToDoList> doneList, Set<University> universityList, Set<Application> applicationList) {
+        super();
         this.doneList = doneList;
         this.universityList = universityList;
         this.applicationList = applicationList;
