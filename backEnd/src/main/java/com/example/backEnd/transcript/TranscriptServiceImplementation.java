@@ -1,7 +1,10 @@
 package com.example.backEnd.transcript;
 
+import org.springframework.stereotype.Service;
+
 import java.util.List;
 
+@Service
 public class TranscriptServiceImplementation implements TranscriptService {
     private final TranscriptRepository transcriptRepository;
 

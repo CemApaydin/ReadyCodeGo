@@ -1,7 +1,10 @@
 package com.example.backEnd.document;
 
+import org.springframework.stereotype.Service;
+
 import java.util.List;
 
+@Service
 public class DocumentServiceImplementation implements DocumentService {
     private final DocumentRepository documentRepository;
 

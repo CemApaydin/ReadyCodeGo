@@ -1,7 +1,10 @@
 package com.example.backEnd.bilkentCourse;
 
+import org.springframework.stereotype.Service;
+
 import java.util.List;
 
+@Service
 public class BilkentCourseServiceImplementation implements BilkentCourseService {
     private final BilkentCourseRepository bilkentCourseRepository;
 

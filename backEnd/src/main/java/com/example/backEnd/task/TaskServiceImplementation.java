@@ -1,7 +1,10 @@
 package com.example.backEnd.task;
 
+import org.springframework.stereotype.Service;
+
 import java.util.List;
 
+@Service
 public class TaskServiceImplementation implements TaskService {
     private final TaskRepository taskRepository;
 

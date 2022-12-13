@@ -32,6 +32,10 @@ public class Transcript extends Document {
         this.hostUniversityId = null;
     }
 
+    public Transcript() {
+        super();
+    }
+
     public Set<Long> getCourseIdsList() {
         return courseIdsList;
     }

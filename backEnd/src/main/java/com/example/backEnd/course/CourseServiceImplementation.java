@@ -1,7 +1,10 @@
 package com.example.backEnd.course;
 
+import org.springframework.stereotype.Service;
+
 import java.util.List;
 
+@Service
 public class CourseServiceImplementation implements CourseService {
     private final CourseRepository courseRepository;
 

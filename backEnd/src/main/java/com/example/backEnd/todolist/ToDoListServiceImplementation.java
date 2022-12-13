@@ -1,7 +1,10 @@
 package com.example.backEnd.todolist;
 
+import org.springframework.stereotype.Service;
+
 import java.util.List;
 
+@Service
 public class ToDoListServiceImplementation implements ToDoListService {
     private final ToDoListRepository toDoListRepository;
 
