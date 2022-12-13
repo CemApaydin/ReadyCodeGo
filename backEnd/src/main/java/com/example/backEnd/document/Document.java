@@ -14,16 +14,16 @@ public class Document {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long documentId;
     private String uploadDate;
-    @ManyToOne
-    private User uploader;
+    private Long uploaderId;
 
-    public Document() {
+    public Document( String uploadDate, Long uploaderId) {
+        this.uploadDate = uploadDate;
+        this.uploaderId = uploaderId;
     }
 
-    public Document(Long documentId, String uploadDate, User uploader) {
-        this.documentId = documentId;
-        this.uploadDate = uploadDate;
-        this.uploader = uploader;
+    public Document() {
+        this.uploadDate = null;
+        this.uploaderId = null;
     }
 
     public Long getDocumentId() {
@@ -42,11 +42,11 @@ public class Document {
         this.uploadDate = uploadDate;
     }
 
-    public User getUploader() {
-        return uploader;
+    public Long getUploaderId() {
+        return uploaderId;
     }
 
-    public void setUploader(User uploader) {
-        this.uploader = uploader;
+    public void setUploaderId(Long uploaderId) {
+        this.uploaderId = uploaderId;
     }
 }

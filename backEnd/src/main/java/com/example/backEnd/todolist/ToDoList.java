@@ -14,32 +14,44 @@ import java.util.Set;
 @CrossOrigin
 public class ToDoList {
     @Id
-    @OneToOne
-    private User owner;
-    @OneToMany
-    private Set<Task> tasks;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long toDoListId;
+    @ElementCollection
+    private Set<Long> activeTaskIds;
+    @ElementCollection
+    private Set<Long> doneTaskIds;
 
-    public ToDoList(User owner, Set<Task> tasks) {
-        this.owner = owner;
-        this.tasks = tasks;
+    public ToDoList( Set<Long> activeTaskIds, Set<Long> doneTaskIds) {
+        this.activeTaskIds = activeTaskIds;
+        this.doneTaskIds = doneTaskIds;
     }
 
     public ToDoList() {
+        this.activeTaskIds = null;
+        this.doneTaskIds = null;
     }
 
-    public User getOwner() {
-        return owner;
+    public Long getToDoListId() {
+        return toDoListId;
     }
 
-    public void setOwner(User owner) {
-        this.owner = owner;
+    public void setToDoListId(Long toDoListId) {
+        this.toDoListId = toDoListId;
     }
 
-    public Set<Task> getTasks() {
-        return tasks;
+    public Set<Long> getActiveTaskIds() {
+        return activeTaskIds;
     }
 
-    public void setTasks(Set<Task> tasks) {
-        this.tasks = tasks;
+    public void setActiveTaskIds(Set<Long> activeTaskIds) {
+        this.activeTaskIds = activeTaskIds;
+    }
+
+    public Set<Long> getDoneTaskIds() {
+        return doneTaskIds;
+    }
+
+    public void setDoneTaskIds(Set<Long> doneTaskIds) {
+        this.doneTaskIds = doneTaskIds;
     }
 }

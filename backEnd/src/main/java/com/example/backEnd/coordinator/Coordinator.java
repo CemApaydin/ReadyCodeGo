@@ -16,71 +16,52 @@ import java.util.Set;
 @CrossOrigin
 public class Coordinator extends User {
 
-    @OneToMany
-    private Set<ToDoList> doneList;
-    @OneToMany
-    private Set<University> universityList;
-    @OneToMany
-    private Set<Application> applicationList;
+    @ElementCollection
+    private Set<Long> universityIdList;
+    @ElementCollection
+    private Set<Long> applicationIdList;
 
-    public Coordinator(Long userID,
-                       String userType,
-                       String userMail,
-                       String password,
-                       String name,
-                       String department,
-                       ToDoList toDoList) {
-        super(userID, userType, userMail, password, name, department, toDoList);
+    public Coordinator(Long userID, String userMail, String password, String name, String department, Long toDoListId, Set<Long> universityIdList, Set<Long> applicationIdList) {
+        super(userID, "coordinator", userMail, password, name, department, toDoListId);
+        this.universityIdList = universityIdList;
+        this.applicationIdList = applicationIdList;
+    }
+
+    public Coordinator(Long userID, String userMail, String password, String name, Long toDoListId, Set<Long> universityIdList, Set<Long> applicationIdList) {
+        super(userID, "coordinator", userMail, password, name, toDoListId);
+        this.universityIdList = universityIdList;
+        this.applicationIdList = applicationIdList;
+    }
+
+    public Coordinator(Long userID, String userMail, String password, String name, String department, Long toDoListId) {
+        super(userID, "coordinator", userMail, password, name, department, toDoListId);
+        this.universityIdList = null;
+        this.applicationIdList = null;
+    }
+
+    public Coordinator(Long userID, String userMail, String password, String name, Long toDoListId) {
+        super(userID, "coordinator", userMail, password, name, toDoListId);
+        this.universityIdList = null;
+        this.applicationIdList = null;
     }
 
     public Coordinator() {
-        super();
+        super("coordinator");
     }
 
-    public Coordinator(Long userID,
-                       String userType,
-                       String userMail,
-                       String password,
-                       String name,
-                       String department,
-                       ToDoList toDoList,
-                       Set<ToDoList> doneList,
-                       Set<University> universityList,
-                       Set<Application> applicationList) {
-        super(userID, userType, userMail, password, name, department, toDoList);
-        this.doneList = doneList;
-        this.universityList = universityList;
-        this.applicationList = applicationList;
+    public Set<Long> getUniversityIdList() {
+        return universityIdList;
     }
 
-    public Coordinator(Set<ToDoList> doneList, Set<University> universityList, Set<Application> applicationList) {
-        super();
-        this.doneList = doneList;
-        this.universityList = universityList;
-        this.applicationList = applicationList;
+    public void setUniversityIdList(Set<Long> universityIdList) {
+        this.universityIdList = universityIdList;
     }
 
-    public Set<ToDoList> getDoneList() {
-        return doneList;
+    public Set<Long> getApplicationIdList() {
+        return applicationIdList;
     }
 
-    public void setDoneList(Set<ToDoList> doneList) {
-        this.doneList = doneList;
-    }
-
-    public Set<University> getUniversityList() {
-        return universityList;
-    }
-
-    public void setUniversityList(Set<University> universityList) {
-        this.universityList = universityList;
-    }
-
-    public Set<Application> getApplicationList() {
-        return applicationList;
-    }
-
-    public void setApplicationList(Set<Application> applicationList) {
-        this.applicationList = applicationList;
+    public void setApplicationIdList(Set<Long> applicationIdList) {
+        this.applicationIdList = applicationIdList;
     }
 }

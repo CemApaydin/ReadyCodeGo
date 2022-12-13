@@ -15,32 +15,15 @@ import java.util.Set;
 @Data
 @CrossOrigin
 public class FacultyBoardMember extends User {
+    public FacultyBoardMember(Long userID,String userMail, String password, String name, String department, Long toDoListId) {
+        super(userID, "facultyboardmember", userMail, password, name, department, toDoListId);
+    }
 
-    @OneToMany
-    private Set<ToDoList> doneList;
+    public FacultyBoardMember(Long userID, String userMail, String password, String name, Long toDoListId) {
+        super(userID, "facultyboardmember", userMail, password, name, toDoListId);
+    }
 
     public FacultyBoardMember() {
-        super();
-    }
-
-    public FacultyBoardMember(Long userID, String userType, String userMail, String password, String name, String department, ToDoList toDoList, Set<ToDoList> doneList) {
-        super(userID, userType, userMail, password, name, department, toDoList);
-        this.doneList = doneList;
-    }
-
-    public FacultyBoardMember(Long userID, String userType, String userMail, String password, String name, String department, ToDoList toDoList) {
-        super(userID, userType, userMail, password, name, department, toDoList);
-    }
-
-    public FacultyBoardMember(Set<ToDoList> doneList) {
-        this.doneList = doneList;
-    }
-
-    public Set<ToDoList> getDoneList() {
-        return doneList;
-    }
-
-    public void setDoneList(Set<ToDoList> doneList) {
-        this.doneList = doneList;
+        super("facultyboardmember");
     }
 }

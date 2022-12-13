@@ -14,31 +14,30 @@ public class Task {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long taskID;
     private String taskName;
-    @ManyToOne
-    private User taskGiver;
-    @OneToOne
-    private User taskReceiver;
+    private Long taskSenderId;
+    private Long taskReceiverId;
     private String text;
     private String taskStatus;
     private String dueDate;
+    private boolean done;
 
-    public Task(Long taskID,
-                String taskName,
-                User taskGiver,
-                User taskReceiver,
-                String text,
-                String taskStatus,
-                String dueDate) {
-        this.taskID = taskID;
+    public Task(String taskName, Long taskSenderId, Long taskReceiverId, String text, String taskStatus, String dueDate, boolean done) {
         this.taskName = taskName;
-        this.taskGiver = taskGiver;
-        this.taskReceiver = taskReceiver;
+        this.taskSenderId = taskSenderId;
+        this.taskReceiverId = taskReceiverId;
         this.text = text;
         this.taskStatus = taskStatus;
         this.dueDate = dueDate;
+        this.done = done;
     }
 
     public Task() {
+        this.taskName = null;
+        this.taskSenderId = null;
+        this.taskReceiverId = null;
+        this.text = null;
+        this.taskStatus = null;
+        this.dueDate = null;
     }
 
     public Long getTaskID() {
@@ -57,20 +56,20 @@ public class Task {
         this.taskName = taskName;
     }
 
-    public User getTaskGiver() {
-        return taskGiver;
+    public Long getTaskSenderId() {
+        return taskSenderId;
     }
 
-    public void setTaskGiver(User taskGiver) {
-        this.taskGiver = taskGiver;
+    public void setTaskSenderId(Long taskSenderId) {
+        this.taskSenderId = taskSenderId;
     }
 
-    public User getTaskReceiver() {
-        return taskReceiver;
+    public Long getTaskReceiverId() {
+        return taskReceiverId;
     }
 
-    public void setTaskReceiver(User taskReceiver) {
-        this.taskReceiver = taskReceiver;
+    public void setTaskReceiverId(Long taskReceiverId) {
+        this.taskReceiverId = taskReceiverId;
     }
 
     public String getText() {
@@ -95,5 +94,13 @@ public class Task {
 
     public void setDueDate(String dueDate) {
         this.dueDate = dueDate;
+    }
+
+    public boolean isDone() {
+        return done;
+    }
+
+    public void setDone(boolean done) {
+        this.done = done;
     }
 }

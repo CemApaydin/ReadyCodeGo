@@ -23,6 +23,9 @@ public class Course {
     }
 
     public Course() {
+        this.courseID = null;
+        this.courseName = null;
+        this.ECTS = 0;
     }
 
     public String getCourseID() {

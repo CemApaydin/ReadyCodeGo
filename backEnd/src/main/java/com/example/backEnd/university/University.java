@@ -17,19 +17,20 @@ public class University {
     private Long universityID;
     private String universityName;
     private int studentLimit;
-    @OneToMany
-    private Set<Course> courseList;
+    @ElementCollection
+    private Set<Long> courseIdsList;
     private boolean isAvailable;
 
-    public University(Long universityID, String universityName, int studentLimit, Set<Course> courseList, boolean isAvailable) {
-        this.universityID = universityID;
+    public University(String universityName, int studentLimit, Set<Long> courseIdsList, boolean isAvailable) {
         this.universityName = universityName;
         this.studentLimit = studentLimit;
-        this.courseList = courseList;
+        this.courseIdsList = courseIdsList;
         this.isAvailable = isAvailable;
     }
 
     public University() {
+        this.universityName = null;
+        this.courseIdsList = null;
     }
 
     public Long getUniversityID() {
@@ -56,12 +57,12 @@ public class University {
         this.studentLimit = studentLimit;
     }
 
-    public Set<Course> getCourseList() {
-        return courseList;
+    public Set<Long> getCourseIdsList() {
+        return courseIdsList;
     }
 
-    public void setCourseList(Set<Course> courseList) {
-        this.courseList = courseList;
+    public void setCourseIdsList(Set<Long> courseIdsList) {
+        this.courseIdsList = courseIdsList;
     }
 
     public boolean isAvailable() {

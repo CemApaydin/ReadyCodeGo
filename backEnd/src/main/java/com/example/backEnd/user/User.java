@@ -20,57 +20,44 @@ public abstract class User{
     private String password;
     private String name;
     private String department;
-    @OneToOne
-    private ToDoList toDoList;
+    private Long toDoListId;
 
-    public User(Long userID,
-                String userType,
-                String userMail,
-                String password,
-                String name,
-                String department,
-                ToDoList toDoList) {
+    public User(Long userID, String userType, String userMail, String password, String name, String department, Long toDoListId) {
         this.userID = userID;
         this.userType = userType;
         this.userMail = userMail;
         this.password = password;
         this.name = name;
         this.department = department;
-        this.toDoList = toDoList;
+        this.toDoListId = toDoListId;
     }
 
+    public User(Long userID, String userType, String userMail, String password, String name, Long toDoListId) {
+        this.userID = userID;
+        this.userType = userType;
+        this.userMail = userMail;
+        this.password = password;
+        this.name = name;
+        this.department = "NA";
+        this.toDoListId = toDoListId;
+    }
+
+    public User(String userType) {
+        this.userID = null;
+        this.userType = userType;
+        this.userMail = null;
+        this.password = null;
+        this.name = null;
+        this.department = null;
+        this.toDoListId = null;
+    }
     public User() {
-    }
-
-    public Long getUserID() {
-        return userID;
-    }
-
-    public String getUserType() {
-        return userType;
-    }
-
-    public String getUserMail() {
-        return userMail;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public String getDepartment() {
-        return department;
-    }
-
-    public ToDoList getToDoList() {
-        return toDoList;
-    }
-
-    public void setToDoList(ToDoList toDoList) {
-        this.toDoList = toDoList;
+        this.userID = null;
+        this.userType = null;
+        this.userMail = null;
+        this.password = null;
+        this.name = null;
+        this.department = null;
+        this.toDoListId = null;
     }
 }

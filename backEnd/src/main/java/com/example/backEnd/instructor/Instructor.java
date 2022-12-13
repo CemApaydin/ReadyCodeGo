@@ -14,40 +14,27 @@ import java.util.Set;
 public class Instructor extends User {
 
     @ElementCollection
-    private Set<String> relatedCourses;
+    private Set<String> relatedCourseIds;
 
-    @OneToMany
-    private Set<ToDoList> doneList;
-
-    public Instructor(Long userID,
-                      String userType,
-                      String userMail,
-                      String password,
-                      String name,
-                      String department,
-                      ToDoList toDoList,
-                      Set<String> relatedCourses,
-                      Set<ToDoList> doneList) {
-        super(userID, userType, userMail, password, name, department, toDoList);
-        this.relatedCourses = relatedCourses;
-        this.doneList = doneList;
+    public Instructor(Long userID, String userMail, String password, String name, String department, Long toDoListId, Set<String> relatedCourseIds) {
+        super(userID, "instructor", userMail, password, name, department, toDoListId);
+        this.relatedCourseIds = relatedCourseIds;
     }
 
-    public Instructor(Set<String> relatedCourses, Set<ToDoList> doneList) {
-        super();
-        this.relatedCourses = relatedCourses;
-        this.doneList = doneList;
+    public Instructor(Long userID, String userMail, String password, String name, String department, Long toDoListId) {
+        super(userID, "instructor", userMail, password, name, department, toDoListId);
+        this.relatedCourseIds = null;
     }
 
     public Instructor() {
-        super();
+        super("instructor");
     }
 
-    public Set<String> getRelatedCourses() {
-        return relatedCourses;
+    public Set<String> getRelatedCourseIds() {
+        return relatedCourseIds;
     }
 
-    public Set<ToDoList> getDoneList() {
-        return doneList;
+    public void setRelatedCourseIds(Set<String> relatedCourseIds) {
+        this.relatedCourseIds = relatedCourseIds;
     }
 }

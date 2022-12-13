@@ -3,10 +3,7 @@ package com.example.backEnd.transcript;
 import com.example.backEnd.course.Course;
 import com.example.backEnd.document.Document;
 import com.example.backEnd.university.University;
-import jakarta.persistence.Entity;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.OneToOne;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Data;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
@@ -17,27 +14,30 @@ import java.util.Set;
 @Data
 @CrossOrigin
 public class Transcript extends Document {
-    @OneToMany
-    private Set<Course> courseList;
+    @ElementCollection
+    private Set<Long> courseIdsList;
     private int totalCredit;
-    @OneToOne
-    private University hostUniversity;
+    private Long hostUniversityId;
 
-    public Transcript(Set<Course> courseList, int totalCredit, University hostUniversity) {
-        this.courseList = courseList;
+    public Transcript(String uploadDate, Long uploaderId, Set<Long> courseIdsList, int totalCredit, Long hostUniversityId) {
+        super(uploadDate, uploaderId);
+        this.courseIdsList = courseIdsList;
         this.totalCredit = totalCredit;
-        this.hostUniversity = hostUniversity;
+        this.hostUniversityId = hostUniversityId;
     }
 
-    public Transcript() {
+    public Transcript(String uploadDate, Long uploaderId) {
+        super(uploadDate, uploaderId);
+        this.courseIdsList = null;
+        this.hostUniversityId = null;
     }
 
-    public Set<Course> getCourseList() {
-        return courseList;
+    public Set<Long> getCourseIdsList() {
+        return courseIdsList;
     }
 
-    public void setCourseList(Set<Course> courseList) {
-        this.courseList = courseList;
+    public void setCourseIdsList(Set<Long> courseIdsList) {
+        this.courseIdsList = courseIdsList;
     }
 
     public int getTotalCredit() {
@@ -48,11 +48,11 @@ public class Transcript extends Document {
         this.totalCredit = totalCredit;
     }
 
-    public University getHostUniversity() {
-        return hostUniversity;
+    public Long getHostUniversityId() {
+        return hostUniversityId;
     }
 
-    public void setHostUniversity(University hostUniversity) {
-        this.hostUniversity = hostUniversity;
+    public void setHostUniversityId(Long hostUniversityId) {
+        this.hostUniversityId = hostUniversityId;
     }
 }

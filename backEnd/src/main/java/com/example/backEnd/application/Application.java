@@ -18,26 +18,24 @@ public class Application {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long applicationID;
     private String applicationStatus;
-    @OneToMany
-    private Set<University> appliedUniversities;
-    @OneToOne
-    private Student student;
-    @OneToMany
-    private Set<Document> documents;
+    @ElementCollection
+    private Set<Long> appliedUniversityIds;
+    private Long studentId;
+    @ElementCollection
+    private Set<Long> documentIds;
 
-    public Application() {
+    public Application( String applicationStatus, Set<Long> appliedUniversityIds, Long studentId, Set<Long> documentIds) {
+        this.applicationStatus = applicationStatus;
+        this.appliedUniversityIds = appliedUniversityIds;
+        this.studentId = studentId;
+        this.documentIds = documentIds;
     }
 
-    public Application(Long applicationID,
-                       String applicationStatus,
-                       Set<University> appliedUniversities,
-                       Student student,
-                       Set<Document> documents) {
-        this.applicationID = applicationID;
-        this.applicationStatus = applicationStatus;
-        this.appliedUniversities = appliedUniversities;
-        this.student = student;
-        this.documents = documents;
+    public Application() {
+        this.applicationStatus = null;
+        this.appliedUniversityIds = null;
+        this.studentId = null;
+        this.documentIds = null;
     }
 
     public Long getApplicationID() {
@@ -56,27 +54,27 @@ public class Application {
         this.applicationStatus = applicationStatus;
     }
 
-    public Set<University> getAppliedUniversities() {
-        return appliedUniversities;
+    public Set<Long> getAppliedUniversityIds() {
+        return appliedUniversityIds;
     }
 
-    public void setAppliedUniversities(Set<University> appliedUniversities) {
-        this.appliedUniversities = appliedUniversities;
+    public void setAppliedUniversityIds(Set<Long> appliedUniversityIds) {
+        this.appliedUniversityIds = appliedUniversityIds;
     }
 
-    public Student getStudent() {
-        return student;
+    public Long getStudentId() {
+        return studentId;
     }
 
-    public void setStudent(Student student) {
-        this.student = student;
+    public void setStudentId(Long studentId) {
+        this.studentId = studentId;
     }
 
-    public Set<Document> getDocuments() {
-        return documents;
+    public Set<Long> getDocumentIds() {
+        return documentIds;
     }
 
-    public void setDocuments(Set<Document> documents) {
-        this.documents = documents;
+    public void setDocumentIds(Set<Long> documentIds) {
+        this.documentIds = documentIds;
     }
 }
