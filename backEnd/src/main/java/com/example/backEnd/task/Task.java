@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 public class Task {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long taskID;
+    private Long taskId;
     private String taskName;
     private Long taskSenderId;
     private Long taskReceiverId;
@@ -40,12 +40,12 @@ public class Task {
         this.dueDate = null;
     }
 
-    public Long getTaskID() {
-        return taskID;
+    public Long getTaskId() {
+        return taskId;
     }
 
-    public void setTaskID(Long taskID) {
-        this.taskID = taskID;
+    public void setTaskId(Long taskId) {
+        this.taskId = taskId;
     }
 
     public String getTaskName() {
