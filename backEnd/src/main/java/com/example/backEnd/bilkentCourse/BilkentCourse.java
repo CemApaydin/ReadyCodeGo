@@ -25,6 +25,12 @@ public class BilkentCourse extends Course {
         this.instructorId = instructorId;
         this.matchedCourseIds = matchedCourseIds;
     }
+    public BilkentCourse(String courseID, String courseName, double ECTS, int bilkentCourseCredit, Long instructorId) {
+        super(courseID, courseName, ECTS);
+        this.bilkentCourseCredit = bilkentCourseCredit;
+        this.instructorId = instructorId;
+        this.matchedCourseIds = null;
+    }
 
     public BilkentCourse(String courseID, String courseName, double ECTS) {
         super(courseID, courseName, ECTS);

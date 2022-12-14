@@ -37,4 +37,10 @@ public class Instructor extends User {
     public void setRelatedCourseIds(Set<String> relatedCourseIds) {
         this.relatedCourseIds = relatedCourseIds;
     }
+    public void addToRelatedCourseIds(String courseID) {
+
+        relatedCourseIds.add(courseID);
+    }
+
+
 }

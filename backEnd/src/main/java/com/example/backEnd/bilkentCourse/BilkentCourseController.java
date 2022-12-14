@@ -3,6 +3,7 @@ package com.example.backEnd.bilkentCourse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
+import com.example.backEnd.instructor.*;
 @RestController
 @CrossOrigin
 @RequestMapping("/bilkentcourse")
