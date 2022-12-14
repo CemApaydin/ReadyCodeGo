@@ -22,24 +22,26 @@ public abstract class User{
     private String department;
     private Long toDoListId;
 
-    public User(Long userID, String userType, String userMail, String password, String name, String department, Long toDoListId) {
+    public User(Long userID, String userType, String userMail, String password, String name, String department) {
         this.userID = userID;
         this.userType = userType;
         this.userMail = userMail;
         this.password = password;
         this.name = name;
         this.department = department;
-        this.toDoListId = toDoListId;
+        ToDoList toDoList = new ToDoList();
+        this.toDoListId = toDoList.getToDoListId();
     }
 
-    public User(Long userID, String userType, String userMail, String password, String name, Long toDoListId) {
+    public User(Long userID, String userType, String userMail, String password, String name) {
         this.userID = userID;
         this.userType = userType;
         this.userMail = userMail;
         this.password = password;
         this.name = name;
         this.department = "NA";
-        this.toDoListId = toDoListId;
+        ToDoList toDoList = new ToDoList();
+        this.toDoListId = toDoList.getToDoListId();
     }
 
     public User(String userType) {

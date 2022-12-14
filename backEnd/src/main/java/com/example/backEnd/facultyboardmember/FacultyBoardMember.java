@@ -15,12 +15,12 @@ import java.util.Set;
 @Data
 @CrossOrigin
 public class FacultyBoardMember extends User {
-    public FacultyBoardMember(Long userID,String userMail, String password, String name, String department, Long toDoListId) {
-        super(userID, "facultyboardmember", userMail, password, name, department, toDoListId);
+    public FacultyBoardMember(Long userID,String userMail, String password, String name, String department) {
+        super(userID, "facultyboardmember", userMail, password, name, department);
     }
 
-    public FacultyBoardMember(Long userID, String userMail, String password, String name, Long toDoListId) {
-        super(userID, "facultyboardmember", userMail, password, name, toDoListId);
+    public FacultyBoardMember(Long userID, String userMail, String password, String name) {
+        super(userID, "facultyboardmember", userMail, password, name);
     }
 
     public FacultyBoardMember() {

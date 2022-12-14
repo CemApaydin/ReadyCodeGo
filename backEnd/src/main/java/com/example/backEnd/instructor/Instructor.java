@@ -16,13 +16,13 @@ public class Instructor extends User {
     @ElementCollection
     private Set<String> relatedCourseIds;
 
-    public Instructor(Long userID, String userMail, String password, String name, String department, Long toDoListId, Set<String> relatedCourseIds) {
-        super(userID, "instructor", userMail, password, name, department, toDoListId);
+    public Instructor(Long userID, String userMail, String password, String name, String department, Set<String> relatedCourseIds) {
+        super(userID, "instructor", userMail, password, name, department);
         this.relatedCourseIds = relatedCourseIds;
     }
 
-    public Instructor(Long userID, String userMail, String password, String name, String department, Long toDoListId) {
-        super(userID, "instructor", userMail, password, name, department, toDoListId);
+    public Instructor(Long userID, String userMail, String password, String name, String department) {
+        super(userID, "instructor", userMail, password, name, department);
         this.relatedCourseIds = null;
     }
 

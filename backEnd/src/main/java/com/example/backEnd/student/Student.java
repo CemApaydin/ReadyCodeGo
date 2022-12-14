@@ -18,31 +18,34 @@ public class Student extends User {
     private boolean isPlaced;
     private double placementGrade;
 
-    public Student(Long userID, String userType, String userMail, String password, String name, String department, Long toDoListId, Long applicationId, Long coordinatorId, boolean isPlaced, double placementGrade) {
-        super(userID, userType, userMail, password, name, department, toDoListId);
+    public Student(Long userID, String userType, String userMail, String password, String name, String department, Long applicationId, Long coordinatorId, boolean isPlaced, double placementGrade) {
+        super(userID, userType, userMail, password, name, department);
         this.applicationId = applicationId;
         this.coordinatorId = coordinatorId;
         this.isPlaced = isPlaced;
         this.placementGrade = placementGrade;
     }
 
-    public Student(Long userID, String userType, String userMail, String password, String name, Long toDoListId, Long applicationId, Long coordinatorId, boolean isPlaced, double placementGrade) {
-        super(userID, userType, userMail, password, name, toDoListId);
+    public Student(Long userID, String userType, String userMail, String password, String name, Long applicationId, Long coordinatorId, boolean isPlaced, double placementGrade) {
+        super(userID, userType, userMail, password, name);
         this.applicationId = applicationId;
         this.coordinatorId = coordinatorId;
         this.isPlaced = isPlaced;
         this.placementGrade = placementGrade;
     }
 
-    public Student(Long userID, String userMail, String password, String name, String department, Long toDoListId) {
-        super(userID, "student", userMail, password, name, department, toDoListId);
+    public Student(Long userID, String userMail, String password, String name, String department) {
+        super(userID, "student", userMail, password, name, department);
         this.applicationId = null;
         this.coordinatorId = null;
         this.placementGrade = 0;
     }
 
-    public Student(Long userID, String userMail, String password, String name, Long toDoListId) {
-        super(userID, "student", userMail, password, name, toDoListId);
+    public Student(Long userID, String userMail, String password, String name) {
+        super(userID, "student", userMail, password, name);
+        this.applicationId = null;
+        this.coordinatorId = null;
+        this.placementGrade = 0;
     }
 
     public Student() {

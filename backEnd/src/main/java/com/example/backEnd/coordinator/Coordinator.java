@@ -21,26 +21,26 @@ public class Coordinator extends User {
     @ElementCollection
     private Set<Long> applicationIdList;
 
-    public Coordinator(Long userID, String userMail, String password, String name, String department, Long toDoListId, Set<Long> universityIdList, Set<Long> applicationIdList) {
-        super(userID, "coordinator", userMail, password, name, department, toDoListId);
+    public Coordinator(Long userID, String userMail, String password, String name, String department, Set<Long> universityIdList, Set<Long> applicationIdList) {
+        super(userID, "coordinator", userMail, password, name, department);
         this.universityIdList = universityIdList;
         this.applicationIdList = applicationIdList;
     }
 
-    public Coordinator(Long userID, String userMail, String password, String name, Long toDoListId, Set<Long> universityIdList, Set<Long> applicationIdList) {
-        super(userID, "coordinator", userMail, password, name, toDoListId);
+    public Coordinator(Long userID, String userMail, String password, String name, Set<Long> universityIdList, Set<Long> applicationIdList) {
+        super(userID, "coordinator", userMail, password, name);
         this.universityIdList = universityIdList;
         this.applicationIdList = applicationIdList;
     }
 
-    public Coordinator(Long userID, String userMail, String password, String name, String department, Long toDoListId) {
-        super(userID, "coordinator", userMail, password, name, department, toDoListId);
+    public Coordinator(Long userID, String userMail, String password, String name, String department) {
+        super(userID, "coordinator", userMail, password, name, department);
         this.universityIdList = null;
         this.applicationIdList = null;
     }
 
-    public Coordinator(Long userID, String userMail, String password, String name, Long toDoListId) {
-        super(userID, "coordinator", userMail, password, name, toDoListId);
+    public Coordinator(Long userID, String userMail, String password, String name) {
+        super(userID, "coordinator", userMail, password, name);
         this.universityIdList = null;
         this.applicationIdList = null;
     }
