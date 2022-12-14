@@ -15,15 +15,17 @@ public class Document {
     private Long documentId;
     private String uploadDate;
     private Long uploaderId;
-
-    public Document( String uploadDate, Long uploaderId) {
+    private Long applicationId;
+    public Document( String uploadDate, Long uploaderId, Long applicationId) {
         this.uploadDate = uploadDate;
         this.uploaderId = uploaderId;
+        this.applicationId = applicationId;
     }
 
     public Document() {
         this.uploadDate = null;
         this.uploaderId = null;
+        this.applicationId = null;
     }
 
     public Long getDocumentId() {
@@ -48,5 +50,9 @@ public class Document {
 
     public void setUploaderId(Long uploaderId) {
         this.uploaderId = uploaderId;
+    }
+
+    public Long getApplicationID() {
+        return applicationId;
     }
 }

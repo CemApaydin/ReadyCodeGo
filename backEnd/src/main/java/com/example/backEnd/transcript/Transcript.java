@@ -19,15 +19,21 @@ public class Transcript extends Document {
     private int totalCredit;
     private Long hostUniversityId;
 
-    public Transcript(String uploadDate, Long uploaderId, Set<Long> courseIdsList, int totalCredit, Long hostUniversityId) {
-        super(uploadDate, uploaderId);
+    public Transcript(String uploadDate, Long uploaderId, Long applicationId, Set<Long> courseIdsList, int totalCredit, Long hostUniversityId) {
+        super(uploadDate, uploaderId, applicationId);
         this.courseIdsList = courseIdsList;
         this.totalCredit = totalCredit;
         this.hostUniversityId = hostUniversityId;
     }
+    public Transcript(String uploadDate, Long uploaderId, Long applicationId, int totalCredit, Long hostUniversityId) {
+        super(uploadDate, uploaderId, applicationId);
+        this.courseIdsList = null;
+        this.totalCredit = totalCredit;
+        this.hostUniversityId = hostUniversityId;
+    }
 
-    public Transcript(String uploadDate, Long uploaderId) {
-        super(uploadDate, uploaderId);
+    public Transcript(String uploadDate, Long uploaderId, Long applicationId) {
+        super(uploadDate, uploaderId, applicationId);
         this.courseIdsList = null;
         this.hostUniversityId = null;
     }

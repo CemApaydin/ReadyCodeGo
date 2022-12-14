@@ -25,7 +25,10 @@ public class DocumentController {
     @PostMapping("/createDocument")
     public String createDocument(@RequestBody Document newDocument)
     {
-
+        if( documentService.saveDocument(newDocument) == null)
+        {
+            return "Unsuccessful Adding!";
+        }
         documentService.saveDocument(newDocument);
         return "Adding Done!!";
     }

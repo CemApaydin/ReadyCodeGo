@@ -25,7 +25,9 @@ public class TranscriptController {
     @PostMapping("/createTranscript")
     public String createTranscript(@RequestBody Transcript newTranscript)
     {
-
+        if( transcriptService.saveTranscript(newTranscript) == null) {
+            return "Not Correct!";
+        }
         transcriptService.saveTranscript(newTranscript);
         return "Adding Done!!";
     }

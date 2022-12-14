@@ -67,4 +67,9 @@ public class Application {
     public void setDocumentIds(Set<Long> documentIds) {
         this.documentIds = documentIds;
     }
+
+
+    public void addTodocumentIds(Long a) {
+        documentIds.add(a);
+    }
 }
