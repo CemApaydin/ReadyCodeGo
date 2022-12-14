@@ -18,16 +18,16 @@ public class Student extends User {
     private boolean isPlaced;
     private double placementGrade;
 
-    public Student(Long userID, String userType, String userMail, String password, String name, String department, Long applicationId, Long coordinatorId, boolean isPlaced, double placementGrade) {
-        super(userID, userType, userMail, password, name, department);
+    public Student(Long userID, String userMail, String password, String name, String department, Long applicationId, Long coordinatorId, boolean isPlaced, double placementGrade) {
+        super(userID, "student", userMail, password, name, department);
         this.applicationId = applicationId;
         this.coordinatorId = coordinatorId;
         this.isPlaced = isPlaced;
         this.placementGrade = placementGrade;
     }
 
-    public Student(Long userID, String userType, String userMail, String password, String name, Long applicationId, Long coordinatorId, boolean isPlaced, double placementGrade) {
-        super(userID, userType, userMail, password, name);
+    public Student(Long userID, String userMail, String password, String name, Long applicationId, Long coordinatorId, boolean isPlaced, double placementGrade) {
+        super(userID, "student", userMail, password, name);
         this.applicationId = applicationId;
         this.coordinatorId = coordinatorId;
         this.isPlaced = isPlaced;
