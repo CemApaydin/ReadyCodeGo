@@ -13,52 +13,49 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 @Data
 @CrossOrigin
 public class Student extends User {
-    private Long applicationId;
     private Long coordinatorId;
     private boolean isPlaced;
     private double placementGrade;
 
-    public Student(Long userID, String userMail, String password, String name, String department, Long applicationId, Long coordinatorId, boolean isPlaced, double placementGrade) {
+    @OneToOne(cascade = {CascadeType.ALL})
+    private Application application;
+    public Student(Long userID, String userMail, String password, String name, String department, Long coordinatorId, boolean isPlaced, double placementGrade) {
         super(userID, "student", userMail, password, name, department);
-        this.applicationId = applicationId;
         this.coordinatorId = coordinatorId;
         this.isPlaced = isPlaced;
         this.placementGrade = placementGrade;
+        application = new Application();
     }
 
-    public Student(Long userID, String userMail, String password, String name, Long applicationId, Long coordinatorId, boolean isPlaced, double placementGrade) {
+    public Student(Long userID, String userMail, String password, String name,  Long coordinatorId, boolean isPlaced, double placementGrade) {
         super(userID, "student", userMail, password, name);
-        this.applicationId = applicationId;
         this.coordinatorId = coordinatorId;
         this.isPlaced = isPlaced;
         this.placementGrade = placementGrade;
+        application = new Application();
+
     }
 
     public Student(Long userID, String userMail, String password, String name, String department) {
         super(userID, "student", userMail, password, name, department);
-        this.applicationId = null;
         this.coordinatorId = null;
         this.placementGrade = 0;
+        application = new Application();
+
     }
 
     public Student(Long userID, String userMail, String password, String name) {
         super(userID, "student", userMail, password, name);
-        this.applicationId = null;
         this.coordinatorId = null;
         this.placementGrade = 0;
+        application = new Application();
+
     }
 
     public Student() {
         super("student");
     }
 
-    public Long getApplicationId() {
-        return applicationId;
-    }
-
-    public void setApplicationId(Long applicationId) {
-        this.applicationId = applicationId;
-    }
 
     public Long getCoordinatorId() {
         return coordinatorId;

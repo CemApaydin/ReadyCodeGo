@@ -23,14 +23,16 @@ public class ToDoList {
     @ElementCollection
     private Set<Long> givenTaskIds;
 
-    public ToDoList( Set<Long> activeTaskIds, Set<Long> doneTaskIds) {
+    public ToDoList( Set<Long> activeTaskIds, Set<Long> doneTaskIds, Set<Long> givenTaskIds) {
         this.activeTaskIds = activeTaskIds;
         this.doneTaskIds = doneTaskIds;
+        this.givenTaskIds = givenTaskIds;
     }
 
     public ToDoList() {
         this.activeTaskIds = null;
         this.doneTaskIds = null;
+        this.givenTaskIds = null;
     }
 
     public Long getToDoListId() {

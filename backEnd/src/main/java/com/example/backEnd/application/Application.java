@@ -20,21 +20,18 @@ public class Application {
     private String applicationStatus;
     @ElementCollection
     private Set<Long> appliedUniversityIds;
-    private Long studentId;
     @ElementCollection
     private Set<Long> documentIds;
 
-    public Application( String applicationStatus, Set<Long> appliedUniversityIds, Long studentId, Set<Long> documentIds) {
+    public Application( String applicationStatus, Set<Long> appliedUniversityIds, Set<Long> documentIds) {
         this.applicationStatus = applicationStatus;
         this.appliedUniversityIds = appliedUniversityIds;
-        this.studentId = studentId;
         this.documentIds = documentIds;
     }
 
     public Application() {
-        this.applicationStatus = null;
+        this.applicationStatus = "NA";
         this.appliedUniversityIds = null;
-        this.studentId = null;
         this.documentIds = null;
     }
 
@@ -62,13 +59,6 @@ public class Application {
         this.appliedUniversityIds = appliedUniversityIds;
     }
 
-    public Long getStudentId() {
-        return studentId;
-    }
-
-    public void setStudentId(Long studentId) {
-        this.studentId = studentId;
-    }
 
     public Set<Long> getDocumentIds() {
         return documentIds;
