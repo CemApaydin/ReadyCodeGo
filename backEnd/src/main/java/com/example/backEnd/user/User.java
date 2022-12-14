@@ -20,7 +20,10 @@ public abstract class User{
     private String password;
     private String name;
     private String department;
-    private Long toDoListId;
+
+    @OneToOne(cascade = {CascadeType.ALL})
+    private ToDoList toDoList;
+
 
     public User(Long userID, String userType, String userMail, String password, String name, String department) {
         this.userID = userID;
@@ -29,8 +32,7 @@ public abstract class User{
         this.password = password;
         this.name = name;
         this.department = department;
-        ToDoList toDoList = new ToDoList();
-        this.toDoListId = toDoList.getToDoListId();
+        toDoList = new ToDoList();
     }
 
     public User(Long userID, String userType, String userMail, String password, String name) {
@@ -40,8 +42,7 @@ public abstract class User{
         this.password = password;
         this.name = name;
         this.department = "NA";
-        ToDoList toDoList = new ToDoList();
-        this.toDoListId = toDoList.getToDoListId();
+        toDoList = new ToDoList();
     }
 
     public User(String userType) {
@@ -51,7 +52,9 @@ public abstract class User{
         this.password = null;
         this.name = null;
         this.department = null;
-        this.toDoListId = null;
+        toDoList = new ToDoList();
+
+
     }
     public User() {
         this.userID = null;
@@ -60,6 +63,64 @@ public abstract class User{
         this.password = null;
         this.name = null;
         this.department = null;
-        this.toDoListId = null;
+        toDoList = new ToDoList();
+
     }
+
+    public Long getUserID() {
+        return userID;
+    }
+
+    public String getUserType() {
+        return userType;
+    }
+
+    public String getUserMail() {
+        return userMail;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getDepartment() {
+        return department;
+    }
+
+    public ToDoList getToDoList() {
+        return toDoList;
+    }
+
+    public void setUserID(Long userID) {
+        this.userID = userID;
+    }
+
+    public void setUserType(String userType) {
+        this.userType = userType;
+    }
+
+    public void setUserMail(String userMail) {
+        this.userMail = userMail;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setDepartment(String department) {
+        this.department = department;
+    }
+
+    public void setToDoList(ToDoList toDoList) {
+        this.toDoList = toDoList;
+    }
+
 }
