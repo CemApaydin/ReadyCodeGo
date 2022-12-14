@@ -20,6 +20,8 @@ public class ToDoList {
     private Set<Long> activeTaskIds;
     @ElementCollection
     private Set<Long> doneTaskIds;
+    @ElementCollection
+    private Set<Long> givenTaskIds;
 
     public ToDoList( Set<Long> activeTaskIds, Set<Long> doneTaskIds) {
         this.activeTaskIds = activeTaskIds;
