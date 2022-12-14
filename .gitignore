@@ -4,3 +4,5 @@
 *.meta
 *.properties
 *.class
+backEnd/src/main/resources/application.properties
+backEnd/src/main/resources/application.properties

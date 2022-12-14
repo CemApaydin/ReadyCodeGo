@@ -25,7 +25,7 @@ public class TaskServiceImplementation implements TaskService {
     public Task saveTask(Task task) {
         User receiver = userRepository.findById(task.getTaskReceiverId()).orElse(null);
         User sender = userRepository.findById(task.getTaskSenderId()).orElse(null);
-        if(receiver != null && sender != null){
+        /*if(receiver != null && sender != null){
             ToDoList receiverList = toDoListRepository.findById(receiver.getToDoList().getToDoListId()).orElse(null);
             ToDoList senderList = toDoListRepository.findById(sender.getToDoList().getToDoListId()).orElse(null);
             if(receiverList != null && senderList != null){
@@ -40,8 +40,16 @@ public class TaskServiceImplementation implements TaskService {
                 userRepository.flush();
                 return taskRepository.save(task);
             }
+        }*/
+        if ( receiver == null || sender == null){
+            return null;
         }
-        return null;
+        taskRepository.save(task);
+        receiver.addToActiveTasks(task.getTaskId());
+        sender.addToGivenTasks(task.getTaskId());
+        userRepository.save(receiver);
+        userRepository.save(sender);
+        return task;
     }
 
     @Override

@@ -123,4 +123,20 @@ public abstract class User{
         this.toDoList = toDoList;
     }
 
+    public void addToActiveTasks(Long taskId){
+        toDoList.addToActiveTasks(taskId);
+    }
+
+    public void addToGivenTasks(Long taskId){
+        toDoList.addToGivenTasks(taskId);
+    }
+
+    public void addToDoneTasks(Long taskId){
+        toDoList.addToDoneTasks(taskId);
+    }
+
+    public void markAsDoneTask(Long taskId){
+        toDoList.markAsDoneTask(taskId);
+    }
+
 }

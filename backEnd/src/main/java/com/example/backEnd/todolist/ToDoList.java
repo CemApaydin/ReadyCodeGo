@@ -58,4 +58,21 @@ public class ToDoList {
     public void setDoneTaskIds(Set<Long> doneTaskIds) {
         this.doneTaskIds = doneTaskIds;
     }
+    public void addToActiveTasks(Long taskId){
+        activeTaskIds.add(taskId);
+    }
+
+    public void addToGivenTasks(Long taskId){
+        givenTaskIds.add(taskId);
+    }
+
+    public void addToDoneTasks(Long taskId){
+        doneTaskIds.add(taskId);
+    }
+
+    public void markAsDoneTask(Long taskId){
+        activeTaskIds.remove(taskId);
+        doneTaskIds.add(taskId);
+    }
+
 }
