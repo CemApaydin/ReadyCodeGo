@@ -40,6 +40,18 @@ public class TranscriptServiceImplementation implements TranscriptService {
     }
 
     @Override
+    public Transcript addCourse(Transcript transcript, String courseId) {
+        transcript.getCourseIdsList().add(courseId);
+        return transcriptRepository.save(transcript);
+    }
+
+    @Override
+    public Transcript deleteCourse(Transcript transcript, String courseId){
+        transcript.getCourseIdsList().remove(courseId);
+        return transcriptRepository.save(transcript);
+    }
+
+    @Override
     public List<Transcript> getAllTranscripts() {
         return transcriptRepository.findAll();
     }

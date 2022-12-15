@@ -31,6 +31,17 @@ public class TranscriptController {
         transcriptService.saveTranscript(newTranscript);
         return "Adding Done!!";
     }
+
+    @PostMapping("/addCourse/{transcriptId}")
+    public Transcript addCourse(@PathVariable Long transcriptId, @RequestBody String courseId){
+        return transcriptService.addCourse(transcriptService.findById(transcriptId),courseId);
+    }
+
+    @PostMapping("/deleteCourse/{transcriptId}")
+    public Transcript deleteCourse(@PathVariable Long transcriptId, @RequestBody String courseId){
+        return transcriptService.deleteCourse(transcriptService.findById(transcriptId),courseId);
+    }
+
     @GetMapping("/{transcriptID}")
     public Transcript getOneTranscript(@PathVariable Long transcriptID)
     {
