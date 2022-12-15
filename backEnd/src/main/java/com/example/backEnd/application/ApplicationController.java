@@ -37,5 +37,17 @@ public class ApplicationController {
     {
         return applicationService.findById(applicationId);
     }
+    @PatchMapping("/editApplicationStatus/{applicationId}")
+    public String editApplicationID(@RequestParam String newStatus,@PathVariable Long applicationId) {
+        Application application = applicationService.findById(applicationId);
+        if (application == null) {
+            return "There is no application with ID " + applicationId ;
+        }
+        else {
+            application.setApplicationStatus(newStatus);
+            applicationService.saveApplication(application);
+        }
+        return "The new application status is " + newStatus;
+    }
 
 }
