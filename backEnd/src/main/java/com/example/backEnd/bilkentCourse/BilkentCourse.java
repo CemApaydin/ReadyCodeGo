@@ -19,21 +19,21 @@ public class BilkentCourse extends Course {
     @ElementCollection
     private Set<Long> matchedCourseIds;
 
-    public BilkentCourse(String courseID, String courseName, double ECTS, int bilkentCourseCredit, Long instructorId, Set<Long> matchedCourseIds) {
-        super(courseID, courseName, ECTS);
+    public BilkentCourse(String courseID, String courseName, double ECTS, Long universityId, int bilkentCourseCredit, Long instructorId, Set<Long> matchedCourseIds) {
+        super(courseID, courseName, ECTS, universityId);
         this.bilkentCourseCredit = bilkentCourseCredit;
         this.instructorId = instructorId;
         this.matchedCourseIds = matchedCourseIds;
     }
-    public BilkentCourse(String courseID, String courseName, double ECTS, int bilkentCourseCredit, Long instructorId) {
-        super(courseID, courseName, ECTS);
+    public BilkentCourse(String courseID, String courseName, double ECTS, long universityId, int bilkentCourseCredit, Long instructorId) {
+        super(courseID, courseName, ECTS, universityId);
         this.bilkentCourseCredit = bilkentCourseCredit;
         this.instructorId = instructorId;
         this.matchedCourseIds = null;
     }
 
-    public BilkentCourse(String courseID, String courseName, double ECTS) {
-        super(courseID, courseName, ECTS);
+    public BilkentCourse(String courseID, String courseName, double ECTS, long universityId) {
+        super(courseID, courseName, ECTS, universityId);
         bilkentCourseCredit = 0;
         instructorId = null;
         matchedCourseIds = null;

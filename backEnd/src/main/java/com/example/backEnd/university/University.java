@@ -18,16 +18,21 @@ public class University {
     private String universityName;
     private int studentLimit;
     @ElementCollection
-    private Set<Long> courseIdsList;
+    private Set<String> courseIdsList;
     private boolean isAvailable;
 
-    public University(String universityName, int studentLimit, Set<Long> courseIdsList, boolean isAvailable) {
+    public University(String universityName, int studentLimit, Set<String> courseIdsList, boolean isAvailable) {
         this.universityName = universityName;
         this.studentLimit = studentLimit;
         this.courseIdsList = courseIdsList;
         this.isAvailable = isAvailable;
     }
-
+    public University(String universityName, int studentLimit,  boolean isAvailable) {
+        this.universityName = universityName;
+        this.studentLimit = studentLimit;
+        this.courseIdsList = null;
+        this.isAvailable = isAvailable;
+    }
     public University() {
         this.universityName = null;
         this.courseIdsList = null;
@@ -57,11 +62,11 @@ public class University {
         this.studentLimit = studentLimit;
     }
 
-    public Set<Long> getCourseIdsList() {
+    public Set<String> getCourseIdsList() {
         return courseIdsList;
     }
 
-    public void setCourseIdsList(Set<Long> courseIdsList) {
+    public void setCourseIdsList(Set<String> courseIdsList) {
         this.courseIdsList = courseIdsList;
     }
 
@@ -71,5 +76,9 @@ public class University {
 
     public void setAvailable(boolean available) {
         isAvailable = available;
+    }
+
+    public void addToCourseIdsList (String courseId) {
+        courseIdsList.add(courseId);
     }
 }

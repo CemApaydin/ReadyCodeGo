@@ -16,16 +16,22 @@ public class Course {
     private String courseName;
     private double ECTS;
 
-    public Course(String courseID, String courseName, double ECTS) {
+
+    //Yeni eklendi
+    private Long universityId;
+
+    public Course(String courseID, String courseName, double ECTS, long universityId) {
         this.courseID = courseID;
         this.courseName = courseName;
         this.ECTS = ECTS;
+        this.universityId = universityId;
     }
 
     public Course() {
         this.courseID = null;
         this.courseName = null;
         this.ECTS = 0;
+        universityId = null;
     }
 
     public String getCourseID() {
@@ -50,5 +56,11 @@ public class Course {
 
     public void setECTS(double ECTS) {
         this.ECTS = ECTS;
+    }
+    public Long getUniversityId() {
+        return universityId;
+    }
+    public void setUniversityId(Long universityId) {
+        this.universityId = universityId;
     }
 }
