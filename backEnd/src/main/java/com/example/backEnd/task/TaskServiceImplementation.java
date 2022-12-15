@@ -25,22 +25,6 @@ public class TaskServiceImplementation implements TaskService {
     public Task saveTask(Task task) {
         User receiver = userRepository.findById(task.getTaskReceiverId()).orElse(null);
         User sender = userRepository.findById(task.getTaskSenderId()).orElse(null);
-        /*if(receiver != null && sender != null){
-            ToDoList receiverList = toDoListRepository.findById(receiver.getToDoList().getToDoListId()).orElse(null);
-            ToDoList senderList = toDoListRepository.findById(sender.getToDoList().getToDoListId()).orElse(null);
-            if(receiverList != null && senderList != null){
-                Set<Long> receiverListActive = receiverList.getActiveTaskIds();
-                receiverListActive.add(task.getTaskId());
-                receiverList.setActiveTaskIds(receiverListActive);
-
-                Set<Long> senderListGiven = senderList.getGivenTaskIds();
-                senderListGiven.add(task.getTaskId());
-                senderList.setGivenTaskIds(senderListGiven);
-
-                userRepository.flush();
-                return taskRepository.save(task);
-            }
-        }*/
         if ( receiver == null || sender == null){
             return null;
         }
@@ -50,6 +34,25 @@ public class TaskServiceImplementation implements TaskService {
         userRepository.save(receiver);
         userRepository.save(sender);
         return task;
+    }
+
+    @Override
+    public  Task updateStatus(Task task, String newStatus){
+        task.setTaskStatus(newStatus);
+        return taskRepository.save(task);
+    }
+
+    @Override
+    public Task updateText(Task task, String newText){
+        task.setText(newText);
+        return taskRepository.save(task);
+    }
+
+    @Override
+    public  Task setDone(Task task){
+        task.setDone(true);
+        task.setTaskStatus("done");
+        return taskRepository.save(task);
     }
 
     @Override

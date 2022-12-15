@@ -30,6 +30,21 @@ public class TaskController {
         return "Adding Done!!";
     }
 
+    @PostMapping("/updateStatus/{taskId}")
+    public Task updateStatus(@PathVariable Long taskId, @RequestBody String newStatus){
+        return taskService.updateStatus(taskService.findById(taskId),newStatus);
+    }
+
+    @PostMapping("/setDone/{taskId}")
+    public Task setDone(@PathVariable Long taskId){
+        return taskService.setDone(taskService.findById(taskId));
+    }
+
+    @PostMapping("/updateText/{taskId}")
+    public Task updateText(@PathVariable Long taskId, @RequestBody String newText){
+        return taskService.updateText(taskService.findById(taskId),newText);
+    }
+
     @GetMapping("/{taskID}")
     public Task getOneTask(@PathVariable Long taskID)
     {
