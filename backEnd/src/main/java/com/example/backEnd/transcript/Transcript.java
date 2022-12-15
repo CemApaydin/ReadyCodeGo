@@ -15,11 +15,11 @@ import java.util.Set;
 @CrossOrigin
 public class Transcript extends Document {
     @ElementCollection
-    private Set<Long> courseIdsList;
+    private Set<String> courseIdsList;
     private int totalCredit;
     private Long hostUniversityId;
 
-    public Transcript(String uploadDate, Long uploaderId, Long applicationId, Set<Long> courseIdsList, int totalCredit, Long hostUniversityId) {
+    public Transcript(String uploadDate, Long uploaderId, Long applicationId, Set<String> courseIdsList, int totalCredit, Long hostUniversityId) {
         super(uploadDate, uploaderId, applicationId);
         this.courseIdsList = courseIdsList;
         this.totalCredit = totalCredit;
@@ -42,11 +42,11 @@ public class Transcript extends Document {
         super();
     }
 
-    public Set<Long> getCourseIdsList() {
+    public Set<String> getCourseIdsList() {
         return courseIdsList;
     }
 
-    public void setCourseIdsList(Set<Long> courseIdsList) {
+    public void setCourseIdsList(Set<String> courseIdsList) {
         this.courseIdsList = courseIdsList;
     }
 
@@ -64,5 +64,8 @@ public class Transcript extends Document {
 
     public void setHostUniversityId(Long hostUniversityId) {
         this.hostUniversityId = hostUniversityId;
+    }
+    public void addToCourseIdsList(String courseID) {
+        courseIdsList.add(courseID);
     }
 }

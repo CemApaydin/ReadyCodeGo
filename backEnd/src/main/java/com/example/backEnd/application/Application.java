@@ -30,7 +30,7 @@ public class Application {
     }
 
     public Application() {
-        this.applicationStatus = "NA";
+        this.applicationStatus = "Pending";
         this.appliedUniversityIds = null;
         this.documentIds = null;
     }
