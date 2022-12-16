@@ -5,6 +5,8 @@ import jakarta.persistence.*;
 import lombok.Data;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
+import java.util.Set;
+
 @Entity
 @Table(name="task")
 @Data
@@ -20,6 +22,13 @@ public class Task {
     private String taskStatus;
     private String dueDate;
     private boolean done;
+    @ElementCollection
+
+    private Set<Long> senderDocumentIds;
+    @ElementCollection
+
+    private Set<Long> receiverDocumentIds;
+
 
     public Task(String taskName, Long taskSenderId, Long taskReceiverId, String text, String taskStatus, String dueDate, boolean done) {
         this.taskName = taskName;
@@ -29,6 +38,8 @@ public class Task {
         this.taskStatus = taskStatus;
         this.dueDate = dueDate;
         this.done = done;
+        senderDocumentIds = null;
+        receiverDocumentIds = null;
     }
 
     public Task() {
@@ -38,6 +49,8 @@ public class Task {
         this.text = null;
         this.taskStatus = null;
         this.dueDate = null;
+        senderDocumentIds = null;
+        receiverDocumentIds = null;
     }
 
     public Long getTaskId() {
@@ -103,4 +116,11 @@ public class Task {
     public void setDone(boolean done) {
         this.done = done;
     }
+    public void addToSenderDocumentIds(Long a) {
+        senderDocumentIds.add(a);
+    }
+    public void addToReceiverDocumentIds(Long a) {
+        receiverDocumentIds.add(a);
+    }
+
 }
