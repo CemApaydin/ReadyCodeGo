@@ -52,6 +52,9 @@ public class DocumentServiceImplementation implements DocumentService {
         return documentRepository.save(document);
 
     }
+
+
+
     @Override
     public Document saveDocumentsToTask(Document document) {
         /*
@@ -76,7 +79,10 @@ public class DocumentServiceImplementation implements DocumentService {
 
         return documentRepository.save(document);
 */
+        return null;
     }
+
+
     @Override
     public List<Document> getAllDocuments() {
         return documentRepository.findAll();
@@ -86,4 +92,5 @@ public class DocumentServiceImplementation implements DocumentService {
     public Document findById(Long documentId) {
         return documentRepository.findById(documentId).orElse(null);
     }
+
 }
