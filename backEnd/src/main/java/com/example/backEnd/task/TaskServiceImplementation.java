@@ -1,5 +1,6 @@
 package com.example.backEnd.task;
 
+import com.example.backEnd.document.Document;
 import com.example.backEnd.todolist.ToDoList;
 import com.example.backEnd.todolist.ToDoListRepository;
 import com.example.backEnd.user.User;
@@ -39,6 +40,22 @@ public class TaskServiceImplementation implements TaskService {
     @Override
     public  Task updateStatus(Task task, String newStatus){
         task.setTaskStatus(newStatus);
+        return taskRepository.save(task);
+    }
+
+    @Override
+    public Task addDocument(Task task, Document document){
+        User receiver = userRepository.findById(task.getTaskReceiverId()).orElse(null);
+        User sender = userRepository.findById(task.getTaskSenderId()).orElse(null);
+        if ( receiver == null || sender == null){
+            return null;
+        }
+        if (document.getUploaderId() == sender.getUserID()){
+            task.addToSenderDocumentIds(document.getDocumentId());
+        }
+        else if (document.getUploaderId() == receiver.getUserID()){
+            task.addToReceiverDocumentIds(document.getDocumentId());
+        }
         return taskRepository.save(task);
     }
 

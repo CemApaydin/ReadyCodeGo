@@ -1,5 +1,6 @@
 package com.example.backEnd.task;
 
+import com.example.backEnd.document.DocumentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -10,10 +11,12 @@ import java.util.List;
 @RequestMapping("/task")
 public class TaskController {
     private final TaskService taskService;
+    private final DocumentService documentService;
 
     @Autowired
-    public TaskController(TaskService taskService) {
+    public TaskController(TaskService taskService, DocumentService documentService) {
         this.taskService = taskService;
+        this.documentService = documentService;
     }
 
     @GetMapping("/findAll")
@@ -33,6 +36,11 @@ public class TaskController {
     @PostMapping("/updateStatus/{taskId}")
     public Task updateStatus(@PathVariable Long taskId, @RequestBody String newStatus){
         return taskService.updateStatus(taskService.findById(taskId),newStatus);
+    }
+
+    @PostMapping("/addDocument/{taskId}")
+    public Task addDocument(@PathVariable Long taskId, @RequestBody Long documentId){
+        return taskService.addDocument(taskService.findById(taskId), documentService.findById(documentId));
     }
 
     @PostMapping("/setDone/{taskId}")
