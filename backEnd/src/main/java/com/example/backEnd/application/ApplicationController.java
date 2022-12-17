@@ -1,5 +1,6 @@
 package com.example.backEnd.application;
 
+import com.example.backEnd.attachment.AttachmentGroupService;
 import com.example.backEnd.document.DocumentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -11,12 +12,12 @@ import java.util.List;
 @RequestMapping("/application")
 public class ApplicationController {
     private final ApplicationService applicationService;
-    private final DocumentService documentService;
+    private final AttachmentGroupService attachmentGroupService;
 
     @Autowired
-    public ApplicationController(ApplicationService applicationService, DocumentService documentService) {
+    public ApplicationController(ApplicationService applicationService, AttachmentGroupService attachmentGroupService) {
         this.applicationService = applicationService;
-        this.documentService = documentService;
+        this.attachmentGroupService = attachmentGroupService;
     }
 
     @GetMapping("/findAll")
@@ -29,9 +30,9 @@ public class ApplicationController {
         return applicationService.saveApplication(newApplication);
     }
 
-    @PostMapping("/addDocument/{applicationId}")
-    public Application addDocument(@PathVariable Long applicationId, @RequestBody Long documentId){
-        return applicationService.addDocument(applicationService.findById(applicationId),documentService.findById(documentId));
+    @PostMapping("/addAttachment/{applicationId}")
+    public Application addAttachment(@PathVariable Long applicationId, @RequestBody Long attachmentId){
+        return applicationService.addAttachment(applicationService.findById(applicationId),attachmentGroupService.findById(attachmentId));
     }
 
     @GetMapping("/{applicationId}")

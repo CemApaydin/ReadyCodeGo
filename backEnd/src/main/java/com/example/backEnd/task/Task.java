@@ -1,5 +1,7 @@
 package com.example.backEnd.task;
 
+import com.example.backEnd.attachment.AttachmentComponent;
+import com.example.backEnd.attachment.AttachmentGroup;
 import com.example.backEnd.user.User;
 import jakarta.persistence.*;
 import lombok.Data;
@@ -22,12 +24,10 @@ public class Task {
     private String taskStatus;
     private String dueDate;
     private boolean done;
-    @ElementCollection
-
-    private Set<Long> senderDocumentIds;
-    @ElementCollection
-
-    private Set<Long> receiverDocumentIds;
+    @OneToOne(cascade = {CascadeType.ALL})
+    private AttachmentGroup senderAttachmentGroup;
+    @OneToOne(cascade = {CascadeType.ALL})
+    private AttachmentGroup receiverAttachmentGroup;
 
 
     public Task(String taskName, Long taskSenderId, Long taskReceiverId, String text, String taskStatus, String dueDate, boolean done) {
@@ -38,8 +38,8 @@ public class Task {
         this.taskStatus = taskStatus;
         this.dueDate = dueDate;
         this.done = done;
-        senderDocumentIds = null;
-        receiverDocumentIds = null;
+        senderAttachmentGroup = new AttachmentGroup();
+        receiverAttachmentGroup = new AttachmentGroup();
     }
 
     public Task() {
@@ -49,8 +49,8 @@ public class Task {
         this.text = null;
         this.taskStatus = null;
         this.dueDate = null;
-        senderDocumentIds = null;
-        receiverDocumentIds = null;
+        senderAttachmentGroup = new AttachmentGroup();
+        receiverAttachmentGroup = new AttachmentGroup();
     }
 
     public Long getTaskId() {
@@ -116,11 +116,26 @@ public class Task {
     public void setDone(boolean done) {
         this.done = done;
     }
-    public void addToSenderDocumentIds(Long a) {
-        senderDocumentIds.add(a);
+    public void addToSenderAttachments(AttachmentComponent attachmentComponent) {
+        senderAttachmentGroup.addComponent(attachmentComponent);
     }
-    public void addToReceiverDocumentIds(Long a) {
-        receiverDocumentIds.add(a);
+    public void addToReceiverAttachments(AttachmentComponent attachmentComponent) {
+        receiverAttachmentGroup.addComponent(attachmentComponent);
     }
 
+    public AttachmentGroup getSenderAttachmentGroup() {
+        return senderAttachmentGroup;
+    }
+
+    public void setSenderAttachmentGroup(AttachmentGroup senderAttachmentGroup) {
+        this.senderAttachmentGroup = senderAttachmentGroup;
+    }
+
+    public AttachmentGroup getReceiverAttachmentGroup() {
+        return receiverAttachmentGroup;
+    }
+
+    public void setReceiverAttachmentGroup(AttachmentGroup receiverAttachmentGroup) {
+        this.receiverAttachmentGroup = receiverAttachmentGroup;
+    }
 }

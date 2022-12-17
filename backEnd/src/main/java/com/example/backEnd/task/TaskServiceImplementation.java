@@ -1,25 +1,27 @@
 package com.example.backEnd.task;
 
-import com.example.backEnd.document.Document;
-import com.example.backEnd.todolist.ToDoList;
-import com.example.backEnd.todolist.ToDoListRepository;
+import com.example.backEnd.attachment.AttachmentComponent;
+import com.example.backEnd.attachment.AttachmentComponentRepository;
+import com.example.backEnd.attachment.AttachmentGroup;
+import com.example.backEnd.attachment.AttachmentGroupRepository;
 import com.example.backEnd.user.User;
 import com.example.backEnd.user.UserRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Set;
 
 @Service
 public class TaskServiceImplementation implements TaskService {
     private final TaskRepository taskRepository;
     private final UserRepository userRepository;
-    private final ToDoListRepository toDoListRepository;
+    private final AttachmentGroupRepository attachmentGroupRepository;
+    private final AttachmentComponentRepository attachmentComponentRepository;
 
-    public TaskServiceImplementation(TaskRepository taskRepository, UserRepository userRepository, ToDoListRepository toDoListRepository) {
+    public TaskServiceImplementation(TaskRepository taskRepository, UserRepository userRepository, AttachmentGroupRepository attachmentGroupRepository, AttachmentComponentRepository attachmentComponentRepository) {
         this.taskRepository = taskRepository;
         this.userRepository = userRepository;
-        this.toDoListRepository = toDoListRepository;
+        this.attachmentGroupRepository = attachmentGroupRepository;
+        this.attachmentComponentRepository = attachmentComponentRepository;
     }
 
     @Override
@@ -44,18 +46,23 @@ public class TaskServiceImplementation implements TaskService {
     }
 
     @Override
-    public Task addDocument(Task task, Document document){
+    public Task addAttachment(Task task, AttachmentComponent attachmentComponent){
         User receiver = userRepository.findById(task.getTaskReceiverId()).orElse(null);
         User sender = userRepository.findById(task.getTaskSenderId()).orElse(null);
-        if ( receiver == null || sender == null){
+        AttachmentGroup receiverAttachments = task.getReceiverAttachmentGroup();
+        AttachmentGroup senderAttachments = task.getSenderAttachmentGroup();
+        if ( receiver == null || sender == null || attachmentComponent == null){
             return null;
         }
-        if (document.getUploaderId() == sender.getUserID()){
-            task.addToSenderDocumentIds(document.getDocumentId());
+        attachmentComponentRepository.save(attachmentComponent);
+        if (attachmentComponent.getUploaderId().longValue() == sender.getUserID().longValue()){
+            task.addToSenderAttachments(attachmentComponent);
         }
-        else if (document.getUploaderId() == receiver.getUserID()){
-            task.addToReceiverDocumentIds(document.getDocumentId());
+        else if (attachmentComponent.getUploaderId().longValue() == receiver.getUserID().longValue()){
+            task.addToReceiverAttachments(attachmentComponent);
         }
+        attachmentComponentRepository.save(senderAttachments);
+        attachmentComponentRepository.save(receiverAttachments);
         return taskRepository.save(task);
     }
 

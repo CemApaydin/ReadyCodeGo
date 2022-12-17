@@ -1,6 +1,7 @@
 package com.example.backEnd.application;
 
 
+import com.example.backEnd.attachment.AttachmentComponent;
 import com.example.backEnd.document.Document;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,8 +23,8 @@ public class ApplicationServiceImplementation implements ApplicationService {
     }
 
     @Override
-    public Application addDocument(Application application, Document document) {
-        application.addTodocumentIds(document.getDocumentId());
+    public Application addAttachment(Application application, AttachmentComponent attachmentComponent) {
+        application.addToAttachments(attachmentComponent);
         return applicationRepository.save(application);
     }
 

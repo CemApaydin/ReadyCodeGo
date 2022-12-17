@@ -1,5 +1,6 @@
 package com.example.backEnd.task;
 
+import com.example.backEnd.attachment.AttachmentGroupService;
 import com.example.backEnd.document.DocumentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -11,12 +12,12 @@ import java.util.List;
 @RequestMapping("/task")
 public class TaskController {
     private final TaskService taskService;
-    private final DocumentService documentService;
+    private final AttachmentGroupService attachmentGroupService;
 
     @Autowired
-    public TaskController(TaskService taskService, DocumentService documentService) {
+    public TaskController(TaskService taskService, AttachmentGroupService attachmentGroupService) {
         this.taskService = taskService;
-        this.documentService = documentService;
+        this.attachmentGroupService = attachmentGroupService;
     }
 
     @GetMapping("/findAll")
@@ -38,9 +39,12 @@ public class TaskController {
         return taskService.updateStatus(taskService.findById(taskId),newStatus);
     }
 
-    @PostMapping("/addDocument/{taskId}")
-    public Task addDocument(@PathVariable Long taskId, @RequestBody Long documentId){
-        return taskService.addDocument(taskService.findById(taskId), documentService.findById(documentId));
+    @PostMapping("/addAttachment/{taskId}")
+    public Task addAttachment(@PathVariable Long taskId, @RequestBody Long attachmentId){
+        if(attachmentGroupService.findById(attachmentId) == null){
+            return null;
+        }
+        return taskService.addAttachment(taskService.findById(taskId), attachmentGroupService.findById(attachmentId));
     }
 
     @PostMapping("/setDone/{taskId}")
@@ -63,5 +67,6 @@ public class TaskController {
     {
         return taskService.findById(taskID);
     }
+
 
 }

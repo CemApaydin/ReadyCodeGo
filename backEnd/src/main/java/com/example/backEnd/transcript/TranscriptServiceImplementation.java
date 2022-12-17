@@ -1,6 +1,8 @@
 package com.example.backEnd.transcript;
 
 import com.example.backEnd.application.*;
+import com.example.backEnd.attachment.AttachmentComponent;
+import com.example.backEnd.attachment.AttachmentComponentRepository;
 import com.example.backEnd.student.*;
 import com.example.backEnd.document.*;
 
@@ -12,29 +14,20 @@ import java.util.List;
 @Service
 public class TranscriptServiceImplementation implements TranscriptService {
     private final TranscriptRepository transcriptRepository;
-    private final ApplicationRepository applicationRepository;
-    private final StudentRepository studentRepository;
-    private final DocumentRepository documentRepository;
+    private final AttachmentComponentRepository attachmentComponentRepository;
 
-    public TranscriptServiceImplementation(TranscriptRepository transcriptRepository, ApplicationRepository applicationRepository, StudentRepository studentRepository, DocumentRepository documentRepository) {
+    public TranscriptServiceImplementation(TranscriptRepository transcriptRepository, AttachmentComponentRepository attachmentComponentRepository) {
         this.transcriptRepository = transcriptRepository;
-        this.applicationRepository = applicationRepository;
-        this.studentRepository = studentRepository;
-        this.documentRepository = documentRepository;
+        this.attachmentComponentRepository = attachmentComponentRepository;
     }
 
     @Override
     public Transcript saveTranscript(Transcript transcript) {
-        Application application = applicationRepository.findById(transcript.getApplicationID()).orElse(null);
-
-
-        Document document = transcript;
-        if(document.getDocumentId() != transcript.getDocumentId()) {
+        AttachmentComponent attachmentComponent = transcript;
+        if(attachmentComponent.getAttachmentId() != transcript.getAttachmentId()) {
             return null;
         }
-        application.addTodocumentIds(document.getDocumentId());
-
-        documentRepository.save(document);
+        attachmentComponentRepository.save(attachmentComponent);
         return transcriptRepository.save(transcript);
 
     }
