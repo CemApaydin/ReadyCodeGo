@@ -1,8 +1,5 @@
 package com.example.backEnd.filestorage;
 
-import java.awt.*;
-import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -11,30 +8,15 @@ import java.nio.file.StandardCopyOption;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import com.example.backEnd.university.University;
-import com.itextpdf.kernel.geom.Matrix;
 import org.apache.commons.io.FilenameUtils;
-import org.apache.pdfbox.Loader;
-import org.apache.pdfbox.pdmodel.PDDocument;
-import org.apache.pdfbox.pdmodel.PDPage;
-import org.apache.pdfbox.pdmodel.PDPageContentStream;
-import org.apache.pdfbox.pdmodel.graphics.image.PDImageXObject;
 import com.example.backEnd.signature.*;
-import com.example.backEnd.facultyboardmember.FacultyBoardMember;
 import com.example.backEnd.signature.SignRepository;
-import com.example.backEnd.student.Student;
 import com.example.backEnd.user.*;
-import com.example.backEnd.facultyboardmember.FacultyBoardMemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.multipart.MultipartFile;
 
-import javax.imageio.ImageIO;
-import javax.swing.*;
-import java.util.List;
 
 @Service
 public class FileStorageServiceImplementation implements FileStorageService{
