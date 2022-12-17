@@ -1,8 +1,10 @@
 package com.example.backEnd.student;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.InputStream;
 import java.util.List;
 
 @RestController
@@ -10,7 +12,7 @@ import java.util.List;
 @RequestMapping("/student")
 public class StudentController {
     private final StudentService studentService;
-
+    private ApplicationContext excel;
     @Autowired
     public StudentController( StudentService studentService) {
         this.studentService = studentService;
@@ -25,7 +27,6 @@ public class StudentController {
     @PostMapping("/createStudent")
     public String createStudent(@RequestBody Student newStudent)
     {
-
         studentService.saveStudent(newStudent);
         return "Adding Done!!";
     }
@@ -38,6 +39,12 @@ public class StudentController {
     public Student getOneStudentA(@PathVariable Long userId)
     {
         return studentService.findById(userId);
+    }
+    @PatchMapping("/student")
+    public String readFromExcel() {
+        InputStream var = (InputStream) excel.getResource("classpath:universityList.xlsx");
+        studentService.excelToStudentList(var);  
+        return "Done";  
     }
 
 

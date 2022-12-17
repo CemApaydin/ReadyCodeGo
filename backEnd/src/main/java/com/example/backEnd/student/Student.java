@@ -82,4 +82,7 @@ public class Student extends User {
     public void setPlacementGrade(double placementGrade) {
         this.placementGrade = placementGrade;
     }
+    public void setApplication( Application app) {
+        this.application = app;    
+    }
 }

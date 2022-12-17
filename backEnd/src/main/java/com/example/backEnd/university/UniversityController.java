@@ -35,6 +35,11 @@ public class UniversityController {
     {
         return universityService.findById(universityId);
     }
+    @GetMapping("/{universityName}")
+    public University getOneUniversity(@PathVariable String universityName)
+    {
+        return universityService.findByName(universityName);
+    }
     @GetMapping("/university/{universityId}")
     public University getOneUniversityA(@PathVariable Long universityId)
     {

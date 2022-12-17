@@ -30,4 +30,10 @@ public class UniversityServiceImplementation implements UniversityService {
     public University findById(Long universityId) {
         return universityRepository.findById(universityId).orElse(null);
     }
+
+
+    @Override
+    public University findByName(String universityName) {
+        return universityRepository.findByName(universityName);
+    }
 }
