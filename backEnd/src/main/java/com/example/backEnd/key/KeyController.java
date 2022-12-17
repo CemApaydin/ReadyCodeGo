@@ -63,8 +63,8 @@ public class KeyController {
     public Boolean checkFacultyBoardMemberKey(@PathVariable String key)
     {
         List<Key> keys = keyService.getAllKeys();
-
-        for(int i = 3; i < keys.size(); i++) {
+        //i = 0 olcak
+        for(int i = 0; i < keys.size(); i++) {
             if( keys.get(i).getKeyType().equals("FacultyBoardMember")) {
                 if (keys.get(i).getKey().equals(key)) {
                     System.out.println("Key Matched!");
@@ -82,7 +82,7 @@ public class KeyController {
     {
 
         List<Key> keys = keyService.getAllKeys();
-        for(int i = 3; i < keys.size(); i++) {
+        for(int i = 0; i < keys.size(); i++) {
             if( keys.get(i).getKeyType().equals("Instructor")) {
                 if (keys.get(i).getKey().equals(key)) {
                     System.out.println("Key Matched!");
@@ -99,7 +99,7 @@ public class KeyController {
     public Boolean checkCoordinatorKey(@PathVariable String key)
     {
         List<Key> keys = keyService.getAllKeys();
-        for(int i = 3; i < keys.size(); i++) {
+        for(int i = 0; i < keys.size(); i++) {
                 if( keys.get(i).getKeyType().equals("Coordinator")) {
                     if (keys.get(i).getKey().equals(key)) {
                         System.out.println("Key Matched!");
