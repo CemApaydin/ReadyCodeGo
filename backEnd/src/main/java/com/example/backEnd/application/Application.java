@@ -1,5 +1,7 @@
 package com.example.backEnd.application;
 
+import com.example.backEnd.attachment.AttachmentComponent;
+import com.example.backEnd.attachment.AttachmentGroup;
 import com.example.backEnd.document.Document;
 import com.example.backEnd.university.University;
 import com.example.backEnd.student.Student;
@@ -20,19 +22,19 @@ public class Application {
     private String applicationStatus;
     @ElementCollection
     private Set<Long> appliedUniversityIds;
-    @ElementCollection
-    private Set<Long> documentIds;
+    @OneToOne(cascade = {CascadeType.ALL})
+    private AttachmentGroup attachmentGroup;
 
-    public Application( String applicationStatus, Set<Long> appliedUniversityIds, Set<Long> documentIds) {
+    public Application( String applicationStatus, Set<Long> appliedUniversityIds) {
         this.applicationStatus = applicationStatus;
         this.appliedUniversityIds = appliedUniversityIds;
-        this.documentIds = documentIds;
+        attachmentGroup = new AttachmentGroup();
     }
 
     public Application() {
         this.applicationStatus = "Pending";
         this.appliedUniversityIds = null;
-        this.documentIds = null;
+        attachmentGroup = new AttachmentGroup();
     }
 
     public Long getApplicationID() {
@@ -59,17 +61,15 @@ public class Application {
         this.appliedUniversityIds = appliedUniversityIds;
     }
 
-
-    public Set<Long> getDocumentIds() {
-        return documentIds;
+    public AttachmentGroup getAttachmentGroup() {
+        return attachmentGroup;
     }
 
-    public void setDocumentIds(Set<Long> documentIds) {
-        this.documentIds = documentIds;
+    public void setAttachmentGroup(AttachmentGroup attachmentGroup) {
+        this.attachmentGroup = attachmentGroup;
     }
 
-
-    public void addTodocumentIds(Long a) {
-        documentIds.add(a);
+    public void addToAttachments(AttachmentComponent attachmentComponent) {
+        attachmentGroup.addComponent(attachmentComponent);
     }
 }

@@ -1,5 +1,6 @@
 package com.example.backEnd.document;
 
+import com.example.backEnd.attachment.AttachmentComponent;
 import com.example.backEnd.user.User;
 import jakarta.persistence.*;
 import lombok.Data;
@@ -9,50 +10,42 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 @Table(name = "document")
 @Data
 @CrossOrigin
-public class Document {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long documentId;
+public class Document extends AttachmentComponent {
     private String uploadDate;
     private Long uploaderId;
-    private Long applicationId;
-    public Document( String uploadDate, Long uploaderId, Long applicationId) {
+
+    public Document( String uploadDate, Long uploaderId) {
+        super();
         this.uploadDate = uploadDate;
         this.uploaderId = uploaderId;
-        this.applicationId = applicationId;
     }
 
     public Document() {
+        super();
         this.uploadDate = null;
         this.uploaderId = null;
-        this.applicationId = null;
     }
-
-    public Long getDocumentId() {
-        return documentId;
+    public  Long getAttachmentId(){
+        return super.getAttachmentId();
     }
-
-    public void setDocumentId(Long documentId) {
-        this.documentId = documentId;
-    }
-
+    @Override
     public String getUploadDate() {
         return uploadDate;
     }
 
+    @Override
     public void setUploadDate(String uploadDate) {
         this.uploadDate = uploadDate;
     }
 
+    @Override
     public Long getUploaderId() {
         return uploaderId;
     }
 
+    @Override
     public void setUploaderId(Long uploaderId) {
         this.uploaderId = uploaderId;
     }
 
-    public Long getApplicationID() {
-        return applicationId;
-    }
 }

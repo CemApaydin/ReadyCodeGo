@@ -1,13 +1,8 @@
 package com.example.backEnd.document;
-import com.example.backEnd.application.*;
-import com.example.backEnd.student.*;
-import com.example.backEnd.task.*;
-import com.example.backEnd.task.TaskRepository;
-import com.example.backEnd.user.*;
 
+import com.example.backEnd.attachment.AttachmentComponent;
 
-
-import com.example.backEnd.instructor.Instructor;
+import com.example.backEnd.attachment.AttachmentComponentRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -15,13 +10,17 @@ import java.util.List;
 @Service
 public class DocumentServiceImplementation implements DocumentService {
     private final DocumentRepository documentRepository;
+    private final AttachmentComponentRepository attachmentComponentRepository;
 
-    public DocumentServiceImplementation(DocumentRepository documentRepository) {
+    public DocumentServiceImplementation(DocumentRepository documentRepository, AttachmentComponentRepository attachmentComponentRepository) {
         this.documentRepository = documentRepository;
+        this.attachmentComponentRepository = attachmentComponentRepository;
     }
 
     @Override
     public Document saveDocument(Document document) {
+        AttachmentComponent attachmentComponent = document;
+        attachmentComponentRepository.save(attachmentComponent);
         return documentRepository.save(document);
     }
 
