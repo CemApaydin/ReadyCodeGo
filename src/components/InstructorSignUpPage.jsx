@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import Navbar from "./navbar1";
 import {useNavigate, useSearchParams} from "react-router-dom";
+import Button from '@mui/material/Button';
 
 export default function InstructorSignUpPage(){
     const navigate = useNavigate();
@@ -125,7 +126,7 @@ export default function InstructorSignUpPage(){
                                 className="LogInText"
                                 onChange={handleChangeKey}
                                 required
-                                maxLength="8" size="8"
+                                maxLength="8" size="20"
                                 type="text" placeholder="Key"/>
                         </td>
                     </tr>
@@ -136,7 +137,7 @@ export default function InstructorSignUpPage(){
                                 className="LogInText"
                                 onChange={handleChangeID}
                                 required
-                                maxLength="8" size="8"
+                                maxLength="8" size="20"
                                 type="text" placeholder="ID:"/>
                         </td>
                     </tr>
@@ -147,7 +148,7 @@ export default function InstructorSignUpPage(){
                                 className="LogInText"
                                 onChange={handleChangeName}
                                 required
-                                maxLength="8" size="8"
+                                maxLength="8" size="20"
                                 type="text" placeholder="Name"/>
                         </td>
                     </tr>
@@ -158,60 +159,61 @@ export default function InstructorSignUpPage(){
                                 className="LogInText"
                                 onChange={handleChangeSurname}
                                 required
-                                maxLength="8" size="8"
+                                maxLength="8" size="20"
                                 type="text" placeholder="Surname"/>
                         </td>
                     </tr>
 
                     <tr>
-                        <td><label>E-Mail</label></td>
+                        <td><label>E-Mail:</label></td>
                         <td>
                             <input
                                 className="LogInText"
-                                onChange={handleChangeEmail}
+                                onChange={handleChangeEmail} size="20"
                                 type="text" placeholder="******@bilkent.ug.edu.tr"/>
                         </td>
                     </tr>
                     <tr>
-                        <td><label>E-Mail (Again)</label></td>
+                        <td><label>E-Mail(Again):</label></td>
                         <td>
                             <input
                                 className="LogInText"
-                                onChange={handleChangeEmailAgain}
+                                onChange={handleChangeEmailAgain} size="20"
                                 type="text" placeholder="******@bilkent.ug.edu.tr"/>
                         </td>
                     </tr>
 
                     <tr>
-                        <td><label>password </label></td>
+                        <td><label>Password:</label></td>
                         <td>
                             <input
                                 className="LogInText"
                                 onChange={handleChangePassword}
                                 required
-                                minLength="4" maxLength="8" size="10"
-                                type="text" placeholder="Password"/>
+                                minLength="4" maxLength="8" size="20"
+                                type="password" placeholder="Password"/>
                         </td>
                     </tr>
                     <tr>
-                        <td><label >password (Again)</label></td>
+                        <td><label >Password(Again):</label></td>
                         <td>
                             <input
                                 className="LogInText"
                                 onChange={handleChangePasswordAgain}
                                 required
-                                maxLength="8" size="8"
-                                type="text" placeholder="Password"/>
+                                maxLength="8" size="20"
+                                type="password" placeholder="Password"/>
                         </td>
                     </tr>
                 </table>
-                <button
+                <Button
+                    variant = "contained"
                     className="LogInButton"
-                    style={{backgroundColor: mouseOver ?  "red" : "white"}}
+                    style={{backgroundColor: mouseOver ?  "gray" : "black"}}
                     onClick={handleClick}
                     onMouseOver={handleMouse}
                     onMouseOut={handleMouseOut}>
-                    Sign Up</button>
+                    Sign Up</Button>
             </div>
         </div>
 

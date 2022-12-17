@@ -2,6 +2,14 @@ import React, {useEffect, useState} from "react";
 import Navbar from "./navbar1"
 import {Routes, Route, useNavigate, Navigate, createSearchParams} from 'react-router-dom';
 import {useSearchParams} from "react-router-dom";
+import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
+import Select from '@mui/material/Select';
+import MenuItem from '@mui/material/MenuItem';
+import Typography from '@mui/material/Typography';
+import InputLabel from '@mui/material/InputLabel';
+import FormControl from '@mui/material/FormControl';
+
 export default function LogInPage(){
     const navigate = useNavigate();
     const [searchParam] = useSearchParams();
@@ -162,43 +170,60 @@ export default function LogInPage(){
                 <Navbar />
                 <div className="LogInPageDiv">
                     <h1 className={LogInError ? "error" : ""}>{headingText}</h1>
-                    <label htmlFor="logInType">Choose log in type:
+                    <table className="loginTable">
 
-                        <select name="logInType" id="logInType" onChange={handleChangeType}>
-                            <option value="empty">--Empty--</option>
-                            <option value="student">Student</option>
-                            <option value="facultyBoard">FacultyAdministrationBoard</option>
-                            <option value="instructor">Instructor</option>
-                            <option value="coordinator">Coordinator</option>
-                        </select>
-                    </label>
+                        <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
+                            <InputLabel id="logInType">Select Type</InputLabel>
+                        <Select name="logInType" id="logInType" label="Select User Type" size="25" onChange={handleChangeType}>
+                            <MenuItem value="student">Student</MenuItem>
+                            <MenuItem value="facultyBoard">FacultyAdministrationBoard</MenuItem>
+                            <MenuItem value="instructor">Instructor</MenuItem>
+                            <MenuItem value="coordinator">Coordinator</MenuItem>
+                        </Select>
+                        </FormControl>
+
+
                     <br />
                     <label htmlFor="name">
-
-                    <input
+                        {/*<td><label >ID:</label ></td>*/}
+                    <TextField
                         className="LogInText"
                         onChange={handleChangeId}
-                        name="id" required size="10"
-                        type="text" placeholder="ID"/>
+                        name="id"
+
+                        autoFocus
+                        variant="outlined"
+                        margin="normal"
+                        required
+                        fullWidth
+
+                        type="text" placeholder="Enter ID"/>
                     </label>
                     <br />
                     <label htmlFor="password">
-
-                    <input
+                        {/*<td><label >Password:</label ></td>*/}
+                    <TextField
                         className="LogInText"
                         onChange={handleChangePassword}
-                        name="password" required size="10"
-                        type="text" placeholder="Password"/>
+                        name="password" required size="20"
+
+                        autoFocus
+                        variant="outlined"
+                        margin="normal"
+                        required
+                        fullWidth
+
+                        type="password" placeholder="Enter Password"/>
                     </label>
                     <br />
-
-                    <button
+                    </table>
+                    <Button variant = "contained"
                         className="MainButton"
-                        style={{backgroundColor: mouseOver ?  "red" : "white"}}
+                        style={{backgroundColor: mouseOver ?  "gray" : "black"}}
                         onClick={handleClick}
                         onMouseOver={handleMouse}
                         onMouseOut={handleMouseOut}>
-                        Log In</button>
+                        Log In</Button>
                 </div>
             </div>
 

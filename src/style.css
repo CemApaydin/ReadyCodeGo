@@ -1,5 +1,7 @@
 .header2{
-    color: red;
+    padding-left: 10px;
+    color: #0095ff;
+    #color: #0077cc;
 }
 .bilkent_logo{
     width: 100px;
@@ -27,6 +29,10 @@
 }
 * {
     box-sizing: border-box;
+}
+
+.bolded {
+    font-weight: bold;
 }
 
 body {
@@ -79,13 +85,23 @@ body {
 .LogInText{
 
 }
+
+.textarea {
+    width: 200px;
+}
 .signupTable{
     position: center;
     margin-left: 25%;
     margin-bottom: 50px;
 }
+
+.loginTable{
+    position: center;
+    margin-left: 25%;
+    margin-bottom: 50px;
+}
 .opNav{
-    background-color: #FA8072;
+    background-color: ghostwhite;
     color: white;
     display: flex;
     justify-content: space-between;
@@ -154,6 +170,7 @@ body {
 .taskCardTableLeft{
     height: 200px;
     width: 33%;
+    float: left;
 }
 .taskCardTableMain p{
     font-size: large;
@@ -162,13 +179,100 @@ body {
     margin-left: 300px;
     height: 200px;
     width: 33%;
+    float: right;
 }
-.taskButton{
+.taskButton {
     margin-left: 400px;
     margin-top: 20px;
     position: center;
-
 }
+
+.taskButton2{
+    background-color: transparent;
+    width: 30%;
+    box-sizing: border-box;
+    color: black;
+    cursor: pointer;
+    display: inline-block;
+    font-family: "Farfetch Basis","Helvetica Neue",Arial,sans-serif;
+    font-weight: 100;
+
+    line-height: 1.5;
+    max-width: none;
+    min-height: 44px;
+    min-width: 10px;
+    outline: none;
+    overflow: hidden;
+    padding: 9px 20px 8px;
+    position: relative;
+    text-align: center;
+    text-transform: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+
+    margin-left: 400px;
+    margin-bottom: 20px;
+}
+
+.taskButton3{
+    background-color: transparent;
+    width: 20%;
+    box-sizing: border-box;
+    color: black;
+    cursor: pointer;
+    display: inline-block;
+    font-family: "Farfetch Basis","Helvetica Neue",Arial,sans-serif;
+    font-weight: 100;
+
+    line-height: 1.5;
+    max-width: none;
+    min-height: 44px;
+    min-width: 10px;
+    outline: none;
+    overflow: hidden;
+    padding: 9px 20px 8px;
+    position: relative;
+    text-align: center;
+    text-transform: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+
+    margin-left: 400px;
+    margin-bottom: 5px;
+}
+
+.custom-file-input::-webkit-file-upload-button {
+    visibility: hidden;
+}
+.custom-file-input::before {
+    content: 'Upload File';
+    display: inline-block;
+    background: linear-gradient(top, #f9f9f9, #e3e3e3);
+    border: 1px solid #999;
+    border-radius: 3px;
+    padding: 5px 8px;
+    outline: none;
+    white-space: nowrap;
+    -webkit-user-select: none;
+    cursor: pointer;
+    text-shadow: 1px 1px #fff;
+    font-weight: 700;
+    font-size: 10pt;
+}
+.custom-file-input:hover::before {
+    border-color: black;
+}
+.custom-file-input:active::before {
+    background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
+}
+
+.button-31:hover,
+.button-31:focus {
+    opacity: .75;
+}
+
 .normal{
     font-size: large;
     color: red;
@@ -180,7 +284,7 @@ body {
 }
 .activeButton{
     border: none;
-    background-color: #777;
+    background-color: white;
     height: 30px;
 }
 .button-7 {
@@ -232,14 +336,17 @@ body {
     justify-content: center;
     padding: 50px 0;
     align-items: center;
+
     width: 40%;
 }
 .SignUpPageTable{
-    margin-left: 700px;
+    margin-left: 500px;
 }
 .SignUpPageTableButton{
     margin-top: 10px;
-    width: 200px;
+    width: 500px;
+    height: 35px;
+    border: 1px solid blue;
 }
 .LogInButton{
     width: 170px;
@@ -249,4 +356,8 @@ body {
     margin-top: 20px;
     width: 150px;
     height: 30px;
+}
+
+h1 {
+    font-size: 35px;
 }

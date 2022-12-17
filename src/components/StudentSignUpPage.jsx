@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import Navbar from "./navbar1"
 import {Routes, Route, useNavigate, createSearchParams, Navigate} from 'react-router-dom';
+import Button from '@mui/material/Button';
 export default function StudentSignUpPage(){
     const navigate = useNavigate();
     const [headingText, setHeadingText] = useState("Sign Up To The System");
@@ -98,13 +99,13 @@ export default function StudentSignUpPage(){
                 <h1 className={error ? "error" : ""}>{headingText}</h1>
                 <table className="signupTable">
                     <tr>
-                        <td><label >ID:</label></td>
+                        <td><label >ID:</label ></td>
                         <td>
                             <input
                                 className="LogInText"
                                 onChange={handleChangeID}
                                 required
-                                maxLength="8" size="8"
+                                maxLength="8" size="20"
                                 type="text" placeholder="ID"/>
                         </td>
                     </tr>
@@ -115,7 +116,7 @@ export default function StudentSignUpPage(){
                                 className="LogInText"
                                 onChange={handleChangeName}
                                 required
-                                maxLength="8" size="8"
+                                maxLength="8" size="20"
                                 type="text" placeholder="Name"/>
                         </td>
                     </tr>
@@ -126,22 +127,23 @@ export default function StudentSignUpPage(){
                             className="LogInText"
                             onChange={handleChangeSurname}
                             required
-                            maxLength="8" size="8"
+                            maxLength="8" size="20"
                             type="text" placeholder="Surname"/>
                         </td>
                     </tr>
 
                     <tr>
-                        <td><label>E-Mail</label></td>
+                        <td><label>E-Mail:</label></td>
                         <td>
                             <input
                                 className="LogInText"
                                 onChange={handleChangeEmail}
+                                size="20"
                                 type="text" placeholder="******@bilkent.ug.edu.tr"/>
                         </td>
                     </tr>
                     <tr>
-                        <td><label>E-Mail (Again)</label></td>
+                        <td><label>E-Mail(Again):</label></td>
                         <td>
                             <input
                                 className="LogInText"
@@ -151,40 +153,37 @@ export default function StudentSignUpPage(){
                     </tr>
 
                     <tr>
-                        <td><label>password </label></td>
+                        <td><label>Password: </label></td>
                         <td>
                             <input
                             className="LogInText"
                             onChange={handleChangePassword}
                             required
-                            minLength="4" maxLength="8" size="10"
-                            type="text" placeholder="Password"/>
+                            minLength="4" maxLength="8" size="20"
+                            type="password" placeholder="Password"/>
                         </td>
                     </tr>
                     <tr>
-                        <td><label >password (Again)</label></td>
+                        <td><label >Password(Again):</label></td>
                         <td>
                             <input
                                 className="LogInText"
                                 onChange={handleChangePasswordAgain}
                                 required
-                                maxLength="8" size="8"
-                                type="text" placeholder="Password"/>
+                                maxLength="8" size="20"
+                                type="password" placeholder="Password"/>
                         </td>
                     </tr>
                 </table>
-                <button
+                <Button
+                    variant = "contained"
                     className="LogInButton"
-                    style={{backgroundColor: mouseOver ?  "red" : "white"}}
+                    style={{backgroundColor: mouseOver ?  "gray" : "black"}}
                     onClick={handleClick}
                     onMouseOver={handleMouse}
                     onMouseOut={handleMouseOut}>
-                    Log In</button>
+                    Sign Up</Button>
             </div>
-
         </div>
-
-
-
     )
 }
