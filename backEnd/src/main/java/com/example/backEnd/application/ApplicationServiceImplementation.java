@@ -1,6 +1,7 @@
 package com.example.backEnd.application;
 
 
+import com.example.backEnd.document.Document;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,6 +18,12 @@ public class ApplicationServiceImplementation implements ApplicationService {
 
     @Override
     public Application saveApplication(Application application) {
+        return applicationRepository.save(application);
+    }
+
+    @Override
+    public Application addDocument(Application application, Document document) {
+        application.addTodocumentIds(document.getDocumentId());
         return applicationRepository.save(application);
     }
 

@@ -1,6 +1,6 @@
 package com.example.backEnd.application;
 
-import com.example.backEnd.student.Student;
+import com.example.backEnd.document.DocumentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,10 +11,12 @@ import java.util.List;
 @RequestMapping("/application")
 public class ApplicationController {
     private final ApplicationService applicationService;
+    private final DocumentService documentService;
 
     @Autowired
-    public ApplicationController(ApplicationService applicationService) {
+    public ApplicationController(ApplicationService applicationService, DocumentService documentService) {
         this.applicationService = applicationService;
+        this.documentService = documentService;
     }
 
     @GetMapping("/findAll")
@@ -25,6 +27,11 @@ public class ApplicationController {
     @PostMapping("/createApplication")
     public Application createApplication(@RequestBody Application newApplication){
         return applicationService.saveApplication(newApplication);
+    }
+
+    @PostMapping("/addDocument/{applicationId}")
+    public Application addDocument(@PathVariable Long applicationId, @RequestBody Long documentId){
+        return applicationService.addDocument(applicationService.findById(applicationId),documentService.findById(documentId));
     }
 
     @GetMapping("/{applicationId}")
