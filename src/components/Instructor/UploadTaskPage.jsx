@@ -57,8 +57,8 @@ export default function InstructorUploadTaskPage(){
                             </table>
                         </td>
                         <td>
-                            <button className="taskButton">SeeCommentsPDF</button>
-                            <button className="taskButton">UploadPDF</button>
+                            <button className="taskButton2">SeeCommentsPDF</button>
+                            <button className="taskButton2">UploadPDF</button>
                         </td>
                         <td>
                             <table className="taskCardTableRight">
@@ -91,6 +91,7 @@ export default function InstructorUploadTaskPage(){
         <div>
             <Navbar/>
             <OperationNavbar/>
+            <h1>Upload Task Page</h1>
             <Task taskId="1" taskGiver="Ercan Bahtiyaroğlu" taskStatue="Wait" taskEndDate="29/12/2022"/>
             <Task taskId="1" taskGiver="Ercan Bahtiyaroğlu" taskStatue="Wait" taskEndDate="29/12/2022"/>
             <Task taskId="3" taskGiver="Ercan Bahtiyaroğlu" taskStatue="Rejected" taskEndDate="29/12/2022"/>

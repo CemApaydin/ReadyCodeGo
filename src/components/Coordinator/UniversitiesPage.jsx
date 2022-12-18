@@ -44,8 +44,8 @@ export default function UniversitiesPage(){
                             </table>
                         </td>
                         <td>
-                            <button className="taskButton">Change Limit</button>
-                            <button className="taskButton">See Information</button>
+                            <button className="taskButton2">Change Limit</button>
+                            <button className="taskButton2">See Information</button>
                         </td>
                         <td>
                             <table className="taskCardTableRight">
@@ -78,6 +78,7 @@ export default function UniversitiesPage(){
         <div>
             <Navbar/>
             <OperationNavbar/>
+            <h1>Universities</h1>
             <Task uniId="1" uniName="Sydney University" taskStatue="Wait" occupation="4"/>
             <Task uniId="2" uniName="Münich University" taskStatue="Rejected" occupation="5"/>
             <Task uniId="3" uniName="Berlin University" taskStatue="Rejected" occupation="2"/>

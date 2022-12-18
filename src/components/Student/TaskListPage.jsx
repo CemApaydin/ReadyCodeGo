@@ -58,7 +58,7 @@ export default function TaskListPage(){
                         </table>
                     </td>
                     <td>
-                        <button className="taskButton">SeeCommentsPDF</button>
+                        <button className="taskButton2">SeeCommentsPDF</button>
                     </td>
                     <td>
                         <table className="taskCardTableRight">
@@ -91,6 +91,7 @@ export default function TaskListPage(){
         <div>
             <Navbar/>
             <OperationNavbar/>
+            <h1>Task List</h1>
             <Task taskId="1" taskGiver="Ercan Bahtiyaroğlu" taskStatue="Wait" taskEndDate="29/12/2022"/>
             <Task taskId="2" taskGiver="Ercan Bahtiyaroğlu" taskStatue="Accepted" taskEndDate="29/12/2022"/>
             <Task taskId="3" taskGiver="Ercan Bahtiyaroğlu" taskStatue="Rejected" taskEndDate="29/12/2022"/>

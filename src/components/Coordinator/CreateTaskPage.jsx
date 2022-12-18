@@ -3,6 +3,7 @@ import OperationNavbar from "./OperationNavbar";
 
 import React, {useState} from "react";
 import {createSearchParams, useNavigate, useSearchParams} from "react-router-dom";
+import Button from '@mui/material/Button';
 
 
 export default function CoordinatorCreateTaskPage(){
@@ -162,7 +163,7 @@ export default function CoordinatorCreateTaskPage(){
                                 className="LogInText"
                                 onChange={handleChangeName}
                                 required
-                                maxLength="8" size="8"
+                                maxLength="8" size="20"
                                 type="text" placeholder=" Task Name"/>
                         </td>
                     </tr>
@@ -173,7 +174,7 @@ export default function CoordinatorCreateTaskPage(){
                                 className="LogInText"
                                 onChange={handleChangeDueDate}
                                 required
-                                maxLength="8" size="8"
+                                maxLength="8" size="20"
                                 type="date" placeholder="DD/MM/YYYY"/>
                         </td>
                     </tr>
@@ -182,8 +183,8 @@ export default function CoordinatorCreateTaskPage(){
                         <td><label htmlFor="logInType">Choose user type:</label> </td>
 
                         <td>
-                                <select name="logInType" id="logInType" onChange={handleChangeType}>
-                                    <option value="empty">--Empty--</option>
+                                <select className="LogInText" name="logInType" id="logInType" onChange={handleChangeType}>
+                                    <option value="empty">--Select--</option>
                                     <option value="student">Student</option>
                                     <option value="facultyBoard">FacultyAdministrationBoard</option>
                                     <option value="instructor">Instructor</option>
@@ -199,7 +200,7 @@ export default function CoordinatorCreateTaskPage(){
                                 className="LogInText"
                                 onChange={handleChangeKey}
                                 required
-                                maxLength="8" size="8"
+                                maxLength="8" size="20"
                                 type="text" placeholder="..."/>
                         </td>
                     </tr>
@@ -228,18 +229,19 @@ export default function CoordinatorCreateTaskPage(){
                                 className="LogInText"
                                 onChange={handleChangeComment}
                                 required
-                                maxLength="8" size="8"
+                                maxLength="8" size="20"
                                 type="text" placeholder="..."/>
                         </td>
                     </tr>
                 </table>
-                <button
+                <Button
+                    variant = "contained"
                     className="LogInButton"
-                    style={{backgroundColor: mouseOver ?  "red" : "white"}}
+                    style={{backgroundColor: mouseOver ?  "gray" : "black"}}
                     onClick={handleClick}
                     onMouseOver={handleMouse}
                     onMouseOut={handleMouseOut}>
-                    Submit</button>
+                    Submit</Button>
             </div>
         </div>
     )

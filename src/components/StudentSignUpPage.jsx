@@ -17,7 +17,7 @@ export default function StudentSignUpPage(){
     function handleClick() {
         if(Username == null || id == null || surname == null || password == null || passwordAgain == null || email == null || emailAgain == null)
         {
-            setHeadingText("Check boxes there is some empty ones");
+            setHeadingText("Check boxes there are some empty ones");
             setError(true);
         }
         else if( email !== emailAgain)

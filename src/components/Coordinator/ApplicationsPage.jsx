@@ -65,11 +65,11 @@ export default function CoordinatorApplicationsPage(){
                             </table>
                         </td>
                         <td>
-                            <button className="taskButton">See Comments PDF</button>
-                            <button className="taskButton">Upload A File</button>
-                            <button className="taskButton">See Transcript</button>
-                            <button className="taskButton">See Progress</button>
-                            <button className="taskButton">Cancel Applicaiton</button>
+                            <button className="taskButton3">See Comments PDF</button>
+                            <button className="taskButton3">Upload A File</button>
+                            <button className="taskButton3">See Transcript</button>
+                            <button className="taskButton3">See Progress</button>
+                            <button className="taskButton3">Cancel Applicaiton</button>
 
                         </td>
                         <td>
@@ -103,6 +103,7 @@ export default function CoordinatorApplicationsPage(){
         <div>
             <Navbar/>
             <OperationNavbar/>
+            <h1>Applications</h1>
             <Application appID="1" appOwner="Sedef Keskin" coordinator ="Eray Tüzün" appStatue="Accepted" university = "Sydney University"taskEndDate="17/09/2022"/>
             <Application appID="2" appOwner="Cem Apaydın" coordinator ="Eray Tüzün" appStatue="Accepted" university = "Münich University"taskEndDate="17/09/2022"/>
             <Application appID="3" appOwner="Kaan Örnek" coordinator ="Eray Tüzün" appStatue="Accepted" university = "Berlin University"taskEndDate="17/09/2022"/>

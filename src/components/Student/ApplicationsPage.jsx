@@ -1,6 +1,15 @@
 import React, {useState} from "react";
 import Navbar from "./StudentNavbar";
 import OperationNavbar from "./OperationNavbar";
+import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
+import Select from '@mui/material/Select';
+import MenuItem from '@mui/material/MenuItem';
+import Typography from '@mui/material/Typography';
+import InputLabel from '@mui/material/InputLabel';
+import Grid from '@mui/material/Grid';
+import Table from '@mui/material/Table';
+import {HTTP_REQUESTS} from "../../backfor/services/HttpRequestService";
 
 export default function ApplicationsPage() {
     {
@@ -87,11 +96,10 @@ export default function ApplicationsPage() {
                                 </table>
                             </td>
                             <td>
-                                <button className="taskButton">See Comments PDF</button>
-                                <button className="taskButton">Upload A File</button>
-                                <button className="taskButton">See Transcript</button>
-                                <button className="taskButton">See Progress</button>
-
+                                <button className="taskButton2">See Comments PDF </button>
+                                <button color="inherit" variant="outlined" className="taskButton2">Upload A File </button>
+                                <button color="inherit" variant="outlined" className="taskButton2">See Transcript</button>
+                                <button color="inherit" variant="outlined" className="taskButton2">See Progress  </button>
                             </td>
                             <td>
                                 <table className="taskCardTableRight">
@@ -116,7 +124,7 @@ export default function ApplicationsPage() {
                         </tr>
                     </table>
                     <div>
-                        <input type="file" name="file" onChange={changeHandler}/>
+                        <input class="custom-file-input" type="file" name="file" onChange={changeHandler}/>
                         <div>
                             <button onClick={handleSubmission}>Submit</button>
                         </div>
@@ -134,6 +142,10 @@ export default function ApplicationsPage() {
                 <h1>ApplicationsPage</h1>
                 <Application appID="1" appOwner="Sedef Keskin" coordinator="Eray Tüzün" appStatue="Accepted"
                              university="Sydney University" taskEndDate="29/12/2022"/>
+                <Application appID="2" appOwner="asdas" coordinator="Eray Tüzün" appStatue="Rejected"
+                             university="asdf University" taskEndDate="11/12/2022"/>
+                <Application appID="3" appOwner="qweqwe" coordinator="Eray Tüzün" appStatue="Wait"
+                             university="xxcv University" taskEndDate="33/12/2022"/>
             </div>
         )
     }

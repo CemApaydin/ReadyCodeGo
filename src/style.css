@@ -1,3 +1,6 @@
+.left{
+    float : left;
+}
 .header2{
     padding-left: 10px;
     color: #0095ff;
@@ -83,7 +86,7 @@ body {
     background-color: #777;
 }
 .LogInText{
-
+    width:200px;
 }
 
 .textarea {

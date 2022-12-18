@@ -2,6 +2,7 @@ import Navbar from "../Instructor/InstructorNavbar";
 import OperationNavbar from "../Instructor/OperationNavbar";
 
 import React from "react";
+//import { HTTP_REQUESTS } from '../backfor/services/HttpRequestService';
 
 export default function InstructorTaskListPage(){
     function Task(props)
@@ -58,7 +59,7 @@ export default function InstructorTaskListPage(){
                             </table>
                         </td>
                         <td>
-                            <button className="taskButton">SeeCommentsPDF</button>
+                            <button className="taskButton2">SeeCommentsPDF</button>
                         </td>
                         <td>
                             <table className="taskCardTableRight">
@@ -87,10 +88,13 @@ export default function InstructorTaskListPage(){
             </div>
         );
     }
+
+
     return (
         <div>
             <Navbar/>
             <OperationNavbar/>
+            <h1>Task List Page</h1>
             <Task taskId="1" taskGiver="Ercan Bahtiyaroğlu" taskStatue="Wait" taskEndDate="29/12/2022"/>
             <Task taskId="2" taskGiver="Ercan Bahtiyaroğlu" taskStatue="Accepted" taskEndDate="29/12/2022"/>
             <Task taskId="3" taskGiver="Ercan Bahtiyaroğlu" taskStatue="Rejected" taskEndDate="29/12/2022"/>

@@ -1,6 +1,7 @@
 import {createSearchParams, Link, useMatch, useNavigate, useResolvedPath} from "react-router-dom"
 import Navbar from "./navbar1"
 import React, {useState} from "react";
+import {HTTP_REQUESTS} from "../backfor/services/HttpRequestService";
 
 export default function SignUpPage() {
     const [mouseOver, setMouseOver] = useState(false);
@@ -73,6 +74,7 @@ export default function SignUpPage() {
             });
 
     }
+
     return (
         <>
             <Navbar />
@@ -87,7 +89,7 @@ export default function SignUpPage() {
                     <td>
                         <button
                             className="SignUpPageTableButton"
-                            style={{backgroundColor: mouseOver ?  "turquoise" : "white"}}
+                            style={{backgroundColor: mouseOver ?  "lightgray" : "white"}}
                             onClick={handleClickAsFacultyBoardMember}
                             onMouseOver={handleMouse}
                             onMouseOut={handleMouseOut}>
@@ -98,7 +100,7 @@ export default function SignUpPage() {
                     <td>
                         <button
                             className="SignUpPageTableButton"
-                            style={{backgroundColor: mouseOver1 ?  "turquoise" : "white"}}
+                            style={{backgroundColor: mouseOver1 ?  "lightgray" : "white"}}
                             onClick={handleClickAsStudent}
                             onMouseOver={handleMouse1}
                             onMouseOut={handleMouseOut1}>
@@ -109,7 +111,7 @@ export default function SignUpPage() {
                     <td>
                         <button
                             className="SignUpPageTableButton"
-                            style={{backgroundColor: mouseOver2 ?  "turquoise" : "white"}}
+                            style={{backgroundColor: mouseOver2 ?  "lightgray" : "white"}}
                             onClick={handleClickAsCoordinator}
                             onMouseOver={handleMouse2}
                             onMouseOut={handleMouseOut2}>
@@ -120,7 +122,7 @@ export default function SignUpPage() {
                     <td>
                         <button
                             className="SignUpPageTableButton"
-                            style={{backgroundColor: mouseOver3 ?  "turquoise" : "white"}}
+                            style={{backgroundColor: mouseOver3 ?  "lightgray" : "white"}}
                             onClick={handleClickAsInstructor}
                             onMouseOver={handleMouse3}
                             onMouseOut={handleMouseOut3}>

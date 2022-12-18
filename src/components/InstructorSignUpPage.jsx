@@ -20,7 +20,7 @@ export default function InstructorSignUpPage(){
     function handleClick() {
         if(key == null || Username == null || id == null || surname == null || password == null || passwordAgain == null || email == null || emailAgain == null)
         {
-            setHeadingText("Check boxes there is some empty ones");
+            setHeadingText("Check boxes there are some empty ones");
             setError(true);
         }
         else if( email != emailAgain)
@@ -216,8 +216,6 @@ export default function InstructorSignUpPage(){
                     Sign Up</Button>
             </div>
         </div>
-
-
 
     )
 }
