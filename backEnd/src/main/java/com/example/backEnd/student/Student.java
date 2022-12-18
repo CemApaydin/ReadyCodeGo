@@ -3,6 +3,7 @@ package com.example.backEnd.student;
 import com.example.backEnd.application.Application;
 import com.example.backEnd.coordinator.Coordinator;
 import com.example.backEnd.todolist.ToDoList;
+import com.example.backEnd.university.University;
 import com.example.backEnd.user.User;
 import jakarta.persistence.*;
 import lombok.Data;
@@ -14,9 +15,9 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 @CrossOrigin
 public class Student extends User {
     private Long coordinatorId;
-    private boolean isPlaced;
+    private boolean isPlaced = false;
     private double placementGrade;
-
+    private Long universityId;
     @OneToOne(cascade = {CascadeType.ALL})
     private Application application;
     public Student(Long userID, String userMail, String password, String name, String department, Long coordinatorId, boolean isPlaced, double placementGrade) {
@@ -25,6 +26,7 @@ public class Student extends User {
         this.isPlaced = isPlaced;
         this.placementGrade = placementGrade;
         application = new Application();
+        universityId = 0L;
     }
 
     public Student(Long userID, String userMail, String password, String name,  Long coordinatorId, boolean isPlaced, double placementGrade) {
@@ -33,6 +35,7 @@ public class Student extends User {
         this.isPlaced = isPlaced;
         this.placementGrade = placementGrade;
         application = new Application();
+        universityId = 0L;
 
     }
 
@@ -41,7 +44,7 @@ public class Student extends User {
         this.coordinatorId = null;
         this.placementGrade = 0;
         application = new Application();
-
+        universityId = 0L;
     }
 
     public Student(Long userID, String userMail, String password, String name) {
@@ -49,13 +52,13 @@ public class Student extends User {
         this.coordinatorId = null;
         this.placementGrade = 0;
         application = new Application();
-
+        universityId = 0L;
     }
 
     public Student() {
         super("student");
         application = new Application();
-
+        universityId = 0L;
     }
 
 
@@ -78,11 +81,19 @@ public class Student extends User {
     public double getPlacementGrade() {
         return placementGrade;
     }
-
+    public Application getApplication() {
+        return this.application;    
+    }
     public void setPlacementGrade(double placementGrade) {
         this.placementGrade = placementGrade;
     }
     public void setApplication( Application app) {
         this.application = app;    
+    }
+    public void setHostUniversityID(Long uniID) {
+        this.universityId = uniID;
+    }
+    public long getHostUniversityID() {
+        return this.universityId;    
     }
 }

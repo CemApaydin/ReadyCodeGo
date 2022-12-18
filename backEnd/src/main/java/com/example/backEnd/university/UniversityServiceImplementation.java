@@ -34,6 +34,7 @@ public class UniversityServiceImplementation implements UniversityService {
 
     @Override
     public University findByName(String universityName) {
-        return universityRepository.findByName(universityName);
+        return universityRepository.findByName(universityName).orElse(null);
     }
+   
 }

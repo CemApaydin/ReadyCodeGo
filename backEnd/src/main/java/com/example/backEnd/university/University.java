@@ -4,8 +4,9 @@ import com.example.backEnd.course.Course;
 import jakarta.persistence.*;
 import lombok.Data;
 import org.springframework.web.bind.annotation.CrossOrigin;
-
+import java.util.ArrayList;
 import java.util.Set;
+import java.util.HashSet;
 
 @Entity
 @Table(name="university")
@@ -17,25 +18,45 @@ public class University {
     private Long universityID;
     private String universityName;
     private int studentLimit;
+    private int studentLimit2;
+    private int numOfAppliedStudents;
+    private int preferedSemester;
     @ElementCollection
+    @CollectionTable()
     private Set<String> courseIdsList;
     private boolean isAvailable;
-
-    public University(String universityName, int studentLimit, Set<String> courseIdsList, boolean isAvailable) {
+    private ArrayList<Integer>quota;
+    
+    public University(String universityName, int studentLimit, int studentLimit2, Set<String> courseIdsList, boolean isAvailable) {
+        quota = new ArrayList<Integer>();
         this.universityName = universityName;
         this.studentLimit = studentLimit;
         this.courseIdsList = courseIdsList;
         this.isAvailable = isAvailable;
+        this.studentLimit2 = studentLimit2;
+        this.numOfAppliedStudents = 0;
+        quota = new ArrayList<Integer>();
+            quota.add(studentLimit);
+            quota.add(studentLimit2);
+            quota.add(Math.min(studentLimit, studentLimit2));
     }
-    public University(String universityName, int studentLimit,  boolean isAvailable) {
+    public University(String universityName, int studentLimit, int studentLimit2,  boolean isAvailable) {
+        quota = new ArrayList<Integer>(3);
+        quota.add(studentLimit);
+        quota.add(studentLimit2);
+        quota.add(Math.min(studentLimit, studentLimit2));
         this.universityName = universityName;
         this.studentLimit = studentLimit;
         this.courseIdsList = null;
         this.isAvailable = isAvailable;
+        this.studentLimit2 = studentLimit2;
+        this.numOfAppliedStudents = 0;
+
     }
     public University() {
         this.universityName = null;
         this.courseIdsList = null;
+        this.numOfAppliedStudents = 0;
     }
 
     public Long getUniversityID() {
@@ -57,7 +78,9 @@ public class University {
     public int getStudentLimit() {
         return studentLimit;
     }
-
+    public int getStudentLimit2() {
+        return studentLimit2;    
+    }
     public void setStudentLimit(int studentLimit) {
         this.studentLimit = studentLimit;
     }
@@ -80,5 +103,14 @@ public class University {
 
     public void addToCourseIdsList (String courseId) {
         courseIdsList.add(courseId);
+    }
+    public ArrayList<Integer> getQuota() {
+        return this.quota;    
+    }
+    public void incrementNumofStudents() {
+        this.numOfAppliedStudents++;    
+    }
+    public void setPreferedSemester(int set) {
+        this.preferedSemester = set;    
     }
 }
