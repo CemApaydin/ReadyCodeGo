@@ -1,0 +1,257 @@
+.header2{
+    color: red;
+}
+.bilkent_logo{
+    width: 100px;
+    height: 100px;
+    position: relative;
+    top:0;
+    left:0;
+}
+.heading_buttons{
+    background-color: orange;
+    width: 70px;
+    height: 50px;
+    color: beige;
+    position: relative;
+    top:0;
+    right:0;
+}
+.topTab{
+    background-color: orange;
+    width: 100%;
+    height: 7%;
+}
+.topPartRow{
+    position: absolute;
+}
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+.container {
+    margin: 1rem;
+    text-align: center;
+}
+
+.nav {
+    background-color: #333;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    gap: 2rem;
+    padding: 0 1rem;
+}
+
+.site-title {
+    font-size: 2rem;
+}
+
+.nav ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+}
+
+.nav a {
+    color: inherit;
+    text-decoration: none;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: .25rem;
+}
+
+.nav li.active {
+    background-color: #555;
+}
+
+.nav li:hover {
+    background-color: #777;
+}
+.LogInText{
+
+}
+.signupTable{
+    position: center;
+    margin-left: 25%;
+    margin-bottom: 50px;
+}
+.opNav{
+    background-color: #FA8072;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    gap: 2rem;
+    padding: 0 1rem;
+}
+.opNav ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+}
+.opNav li.active {
+    background-color: green;
+}
+
+.opNav li:hover {
+    background-color: #777;
+}
+.opNav a {
+    color: inherit;
+    text-decoration: none;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: .25rem;
+}
+.error{
+    color: red;
+}
+.active {
+    background-color: #555;
+}
+.infoCard{
+    background-color: #444343;
+    border: dashed;
+    border: red;
+    border: 2px;
+    padding: 0.5em;
+    width: 50%;
+    margin-top: 20px;
+    border: #333333;
+    border-radius: 15px;
+}
+.infoCard h1{
+    color: red;
+    text-align: center;
+}
+.taskCard{
+    border: dashed;
+    border: red;
+    border: 2px;
+    padding: 0.5em;
+    border: #333333;
+    border-radius: 15px;
+    margin-top: 100px;
+    height: 250px;
+    width: 100%;
+}
+.taskCardTableMain {
+    height: 200px;
+    width: 100%;
+}
+.taskCardTableLeft{
+    height: 200px;
+    width: 33%;
+}
+.taskCardTableMain p{
+    font-size: large;
+}
+.taskCardTableRight{
+    margin-left: 300px;
+    height: 200px;
+    width: 33%;
+}
+.taskButton{
+    margin-left: 400px;
+    margin-top: 20px;
+    position: center;
+
+}
+.normal{
+    font-size: large;
+    color: red;
+}
+.normalNavbarButton{
+    border: none;
+    background-color: beige;
+    height: 30px;
+}
+.activeButton{
+    border: none;
+    background-color: #777;
+    height: 30px;
+}
+.button-7 {
+    background-color: #0095ff;
+    border: 1px solid transparent;
+    border-radius: 3px;
+    box-shadow: rgba(255, 255, 255, .4) 0 1px 0 0 inset;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-family: -apple-system,system-ui,"Segoe UI","Liberation Sans",sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 1.15385;
+    margin: 0;
+    outline: none;
+    padding: 8px .8em;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: baseline;
+    white-space: nowrap;
+}
+
+.button-7:hover,
+.button-7:focus {
+    background-color: #07c;
+}
+
+.button-7:focus {
+    box-shadow: 0 0 0 4px rgba(0, 149, 255, .15);
+}
+
+.button-7:active {
+    background-color: #0064bd;
+    box-shadow: none;
+}
+.LogInPageDiv{
+    margin-top: 50px;
+    margin-left: 500px;
+    position: center;
+    background-color: beige;
+    text-align: center;
+    border: 5px solid;
+    justify-content: center;
+    padding: 50px 0;
+    align-items: center;
+    width: 40%;
+}
+.SignUpPageTable{
+    margin-left: 700px;
+}
+.SignUpPageTableButton{
+    margin-top: 10px;
+    width: 200px;
+}
+.LogInButton{
+    width: 170px;
+    height: 40px;
+}
+.MainButton{
+    margin-top: 20px;
+    width: 150px;
+    height: 30px;
+}
+.minorTaskCard{
+    width: 100%;
+    height: 50px;
+    margin-top: 10px;
+}
